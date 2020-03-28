@@ -39,6 +39,6 @@ Otras referencias útiles:
 ## Lenguaje a utilizar:
 
 
-
+## % de la calificación final: 20 puntos
 
 
