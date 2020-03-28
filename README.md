@@ -11,7 +11,7 @@ Otras referencias útiles:
   
   * [Video sobre issues, milestones](https://www.youtube.com/watch?v=ukYSRu4k0gs)
   
-  * [Project management](https://www.youtube.com/watch?v=ff5cBkPg-bQ)
+  * [Video sobre project management](https://www.youtube.com/watch?v=ff5cBkPg-bQ)
 
 
 * Grupo de programación: se encarga de programar los métodos descritos en el objetivo. Los métodos deben estar documentados. La documentación involucra a los parámetros de entrada, los de salida y ejemplos de ejecución. Ver [documenting python code](https://realpython.com/documenting-python-code/) para un ejemplo en python de cómo documentar. Mantiene constante contacto con project manager para resolver *issues*, revisión de las tarjetas del *project board* y *milestones*.
