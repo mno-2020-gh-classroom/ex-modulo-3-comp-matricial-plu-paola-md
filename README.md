@@ -23,7 +23,7 @@ Otras referencias útiles:
 
 ## Objetivos:
 
-* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará  [factorización lu con pivoteo parcial](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices aleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
+* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará  [factorización lu con pivoteo parcial](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices pseudoaleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
 
 * Aprendizaje sobre el uso de github como herramienta colaborativa en la creación y desarrollo de proyectos.
 
