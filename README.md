@@ -1,6 +1,6 @@
 # Examen para calif de cómputo matricial
 
-El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división es similar a la que se utiliza en la metodología Scrum en un ambiente laboral real.
+El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en la metodología [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real.
 
 
 A continuación se detallan las tareas a realizar en cada grupo.
