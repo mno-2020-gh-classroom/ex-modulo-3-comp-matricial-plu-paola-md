@@ -21,20 +21,22 @@ Otras referencias útiles:
 
 **Cada equipo decide qué personas están en qué rol.**
 
-**Objetivos:**
+## Objetivos:
 
-* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará  [factorización lu con pivoteo parcial](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
+* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará  [factorización lu con pivoteo parcial](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices aleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
 
 * Aprendizaje sobre el uso de github como herramienta colaborativa en la creación y desarrollo de proyectos.
 
 * Aprendizaje en la organización de trabajo en equipo para adopción de metodologías como [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) para el desarrollo de proyectos. 
 
-**Fecha entrega y aspectos a calificar**
+## Fecha entrega y aspectos a calificar
 
 * 19 de abril 11:59 pm
 
 * Cada equipo y persona obtendrán una calificación. Para el equipo consideraré que los métodos obtengan correctamente los resultados. Para la calificación individual calificaré de acuerdo a sus commits, *issues*, *milestones* o tarjetas creadas.
 
+
+## Lenguaje a utilizar:
 
 
 
