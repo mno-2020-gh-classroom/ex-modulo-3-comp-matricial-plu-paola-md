@@ -31,7 +31,7 @@ Otras referencias útiles:
 
 **Nota para los equipos que programan una factorización matricial distinta a la SVD:** una vez que programan su factorización matricial tienen que utilizar métodos de sustitución hacia delante y hacia atrás para resolver el SEL asociado. Utilicen [solve triangular](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_triangular.html) de `scipy` o [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de `R` para esto.
 
-## Fecha entrega y aspectos a calificar
+## Fecha de entrega y aspectos a calificar
 
 * 19 de abril 11:59 pm
 
