@@ -1,4 +1,4 @@
-# Borrador para examen de cómputo matricial
+# Examen de cómputo matricial equipo PLU
 
 El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
 
@@ -15,7 +15,7 @@ Otras referencias útiles:
   
   * [Video sobre issues, milestones](https://www.youtube.com/watch?v=ukYSRu4k0gs)
   
-* Grupo de programación **(3 personas excepto para el equipo Jacobi, Gauss-Seidel que son 2)**: se encarga de programar los métodos descritos en el objetivo y de documentarlos. La documentación involucra a los parámetros de entrada, los de salida y ejemplos de ejecución. Ver [documenting python code](https://realpython.com/documenting-python-code/) para un ejemplo en python de cómo documentar. Mantiene constante contacto con project manager para resolver *issues*, revisión de las tarjetas del *project board* y *milestones*.
+* Grupo de programación **(3 personas)**: se encarga de programar los métodos descritos en el objetivo y de documentarlos. La documentación involucra a los parámetros de entrada, los de salida y ejemplos de ejecución. Ver [documenting python code](https://realpython.com/documenting-python-code/) para un ejemplo en python de cómo documentar. Mantiene constante contacto con project manager para resolver *issues*, revisión de las tarjetas del *project board* y *milestones*.
 
 * Grupo de revisión de programación y realización de reportes de resultados **(3 personas)**: se encarga de probar los métodos que realiza el grupo de programación con diferentes parámetros. Genera reportes de resultados con las variaciones de los parámetros. Su objetivo es encontrar *bugs* en el código y revisar que la documentación esté apropiadamente escrita y sea entendible. Si no pasa algún requerimiento anterior entonces crea uno o más *issues* por cada hallazgo encontrado. Ver [issues](https://guides.github.com/features/issues/). Le indica al grupo de programación y al project manager que deben resolverse los *issues*. ¿Cuáles son los parámetros en el contexto del objetivo de esta gh-classroom? los parámetros son diferentes matrices y lados derechos, diferentes dimensiones de las matrices y del los lados derechos, diferentes tamaños de los bloques.  
 
@@ -23,7 +23,7 @@ Otras referencias útiles:
 
 ## Objetivos:
 
-* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará  <aquí colocar liga a método a programar> para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices pseudoaleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
+* Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará [3.3.a.Factorizacion_LU](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices pseudoaleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
 
 * Aprendizaje sobre el uso de github como herramienta colaborativa en la creación y desarrollo de proyectos.
 
