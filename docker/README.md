@@ -26,7 +26,7 @@ docker push $REPO_URL:$VERSION
 Run:
 
 ```
-docker run --rm -it -p 8888:8888 -v $BUILD_DIR:/home/jovyan/work $REPO_URL:$VERSION --name jupyterlab-local
+docker run --rm -it --name jupyterlab-local -p 8888:8888 -v $BUILD_DIR:/home/jovyan/work $REPO_URL:$VERSION 
 ```
 
 
