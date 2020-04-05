@@ -5,6 +5,10 @@ VERSION=1.0.0
 REPO_URL=paolamedo/numerical_plu
 BUILD_DIR=/home/user/midir
 ```
+Use:
+```
+docker pull $REPO_URL:$VERSION
+```
 
 Build:
 
