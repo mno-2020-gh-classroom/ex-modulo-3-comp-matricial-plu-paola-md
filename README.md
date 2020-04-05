@@ -2,6 +2,17 @@
 
 El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
 
+**Integrantes del equipo**
+
+| # | Alumno    |        Rol         |      User github       |
+|---|-----------|--------------------|------------------------|
+| 1 | Rafael    |    Project Manager |      123972            |
+| 2 | Paola     |    Programadora    |      paola-md          |
+| 3 | Sebastián |    Programador     |      C1587S            |
+| 4 | Alfie     |    Programador     |      gonzalezalfie     |
+| 5 | Maggie    | Revisión de código |      maggiemusa        |  
+| 6 | Karla     | Revisión de código |      alpika19186       |
+| 7 | Yalidt    | Revisión de código |      Yalidt            |
 
 A continuación se detallan las tareas a realizar en cada grupo.
 
