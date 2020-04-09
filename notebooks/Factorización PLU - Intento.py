@@ -74,20 +74,13 @@ def PLU(A):
                 L[indexr(mu), indexr(1):(j-1)] = aux.copy()
         U[indexr(j), indexr(j)] = v[indexr(j)].copy()
     P = get_P(piv)
-    return({'L':L, 'U':U, 'piv':piv, 'P':P})
+    return P, L, U
     
 A = np.array([[0, 0, 4], 
               [1, 3, 2], 
               [2, 8, 4]])
 
-PLU(A)['piv']
-PLU(A)['L']
-PLU(A)['U']
-PLU(A)['P']
-
-P = PLU(A)['P']
-L = PLU(A)['L']
-U = PLU(A)['U']
+P, L, U = PLU(A)
 
 np.matmul(P, A)
 np.matmul(L, U)
@@ -99,10 +92,7 @@ def solve(A, b):
     b = b.astype('float64')
 #Paso 1
 
-    fact = PLU(A)
-    P = fact['P']
-    L = fact['L']
-    U = fact['U']
+    P, L, U = PLU(A)
 
 #Paso 2
     
@@ -121,10 +111,7 @@ A = np.array([[2, 1, -1],
               [3, -2, 1]])
 b = np.array([1, 3, 2])
 
-fact = PLU(A)
-P = fact['P']
-L = fact['L']
-U = fact['U']
+P, L, U = PLU(A)
 
 np.matmul(P, A)
 np.matmul(L, U)
@@ -137,10 +124,7 @@ A = np.array([[2, 2, 3],
               [4, 8, 3]])
 b = np.array([-7, -1, 5])
 
-fact = PLU(A)
-P = fact['P']
-L = fact['L']
-U = fact['U']
+P, L, U = PLU(A)
 
 np.matmul(P, A)
 np.matmul(L, U)
