@@ -2,6 +2,8 @@ import numpy as np
 from scipy.linalg import solve_triangular
 
 class FactorizacionPLU():
+    def __init__(self):
+        print("in init")
     
     def forward_substitution(self, L, b):
         to_n = lambda n: np.arange(1, n+1)
@@ -174,6 +176,10 @@ class FactorizacionPLU():
                 v[indexr(mu)] = aux.copy()
                 if v[indexr(j)] != 0:
                     L[indexr(j+1):n, indexr(j)] = (v[indexr(j+1):n]/v[indexr(j)]).copy()
+                else:
+                    #A es singular
+                    print("A ES SINGULAR")
+                    return -1 #PROMETO QUITAR ESTE BREAK
                 if j > 1:
                     aux = L[indexr(j), indexr(1):(j-1)].copy()
                     L[indexr(j), indexr(1):(j-1)] = L[indexr(mu), indexr(1):(j-1)].copy()
@@ -187,13 +193,17 @@ class FactorizacionPLU():
     def solve(self, A, b):
         A = A.astype('float64')
         b = b.astype('float64')
-        #Paso 1
-        P, L, U = self.PLU(A)
 
-        #Paso 2
-        d = self.forward_substitution(L, np.matmul(P, b))
-
-        #Paso 3
-        x = self.backward_substitution(U, d)
-
+        try:
+            #Paso 1
+            P, L, U = self.PLU(A)
+            #Paso 2
+            d = self.forward_substitution(L, np.matmul(P, b))
+            #Paso 3
+            x = self.backward_substitution(U, d)
+            
+        except (Exception) as error :
+            print ("Matriz singular")
+            x = -1
+            
         return x
