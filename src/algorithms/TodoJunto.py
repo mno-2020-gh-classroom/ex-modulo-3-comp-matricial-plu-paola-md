@@ -200,9 +200,7 @@ def PLU(A):
                 if v[indexr(j)] != 0:
                     L[indexr(j+1):n, indexr(j)] = (v[indexr(j+1):n]/v[indexr(j)]).copy()
                 else:
-                    #A es singular
-                    print("A ES SINGULAR")
-                    return -1 
+                    raise ValueError('Please enter a non-singular matrix.')
                 if j > 1:
                     aux = L[indexr(j), indexr(1):(j-1)].copy()
                     L[indexr(j), indexr(1):(j-1)] = L[indexr(mu), indexr(1):(j-1)].copy()
@@ -240,8 +238,7 @@ def solve( A, b):
         #Paso 3
         x = solve_triangular(U, d, lower = False)
     except (Exception) as error :
-        print ("Matriz singular")
-        x = -1
+        raise ValueError('Please enter a non-singular matrix.')
 
     return x
 

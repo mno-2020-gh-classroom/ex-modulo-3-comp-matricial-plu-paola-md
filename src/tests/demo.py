@@ -31,6 +31,19 @@ def prueba_bloques():
     x_nuestra = solve_blocks(MAT_B,sol_b)
     print(x_nuestra)
     
+    MAT_A =  np.array([[ 0.,  0., 0., -5.],
+                   [-3.,  9.,  0.,  7.],
+                   [ 5.,  1.,  0., -4.],
+                   [ 6., -1.,  0.,  8.]])
+
+    sol_a = np.array([3,0,7,6], dtype=np.float)
+    
+    #x_prueba=np.linalg.solve(MAT_A,sol_a)
+    #print(x_prueba)
+
+    x_nuestra = solve_blocks(MAT_A,sol_a)
+    print(x_nuestra)
+    
 def prueba_lu():
     factorizador = plu.FactorizacionPLU()
     A = np.array([[2, 2, 3], 
