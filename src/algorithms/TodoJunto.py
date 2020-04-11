@@ -82,7 +82,7 @@ def backward_substitution( U, b):
 
     return(x)
 
-def get_P(self, piv):
+def get_P(piv):
     to_n = lambda n: np.arange(1, n+1)
     indexr = lambda i: i-1
     '''
@@ -161,7 +161,7 @@ def PLU(A):
                 aux = a[indexr(k)].copy()
                 a[indexr(k)] = a[indexr(piv[indexr(k)])].copy()
                 a[indexr(piv[indexr(k)])] = aux.copy()
-            z = self.forward_substitution(L[indexr(1):(j-1), indexr(1):(j-1)], a[indexr(1):(j-1)])
+            z = forward_substitution(L[indexr(1):(j-1), indexr(1):(j-1)], a[indexr(1):(j-1)])
             U[indexr(1):(j-1), indexr(j)] = z.copy()
             v[indexr(j):n] = (a[indexr(j):n]-np.matmul(L[indexr(j):n, indexr(1):(j-1)], z)).copy()
 
@@ -205,10 +205,10 @@ def solve( A, b):
     return x
 
 
- def nuestro_algoritmo(self, A, b):
+def nuestro_algoritmo(A, b):
     return solve(A,b)
 
-def solve_blocks(self,A,b):    
+def solve_blocks(A,b):    
     # Check that it is a squared matrix
     A_column = A.shape[1]
     if A_column == A.shape[0]:
@@ -226,14 +226,14 @@ def solve_blocks(self,A,b):
         b1 = b[:x]
         b2 = b[x:]
         try:
-            A11_b1 = self.nuestro_algoritmo(A11, b1)
-            A11_A12 = self.nuestro_algoritmo(A11, A12)
+            A11_b1 = nuestro_algoritmo(A11, b1)
+            A11_A12 = nuestro_algoritmo(A11, A12)
 
             Schur = A22 - A21@A11_A12
             b_hat = b2 - A21@A11_b1
 
-            x2 = self.nuestro_algoritmo(Schur, b_hat)
-            x1 = self.nuestro_algoritmo(A11, (b1-A12@x2))
+            x2 = nuestro_algoritmo(Schur, b_hat)
+            x1 = nuestro_algoritmo(A11, (b1-A12@x2))
 
             X = np.block([x1,x2])
 
