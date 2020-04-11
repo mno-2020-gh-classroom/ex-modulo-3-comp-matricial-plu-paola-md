@@ -38,7 +38,7 @@ def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_su
     return A,n,x_real
 
 def factoriza_plu(A):
-        '''
+    '''
     Esta función ejecuta el algoritmo de PLU y mide el tiempo de ejecución total del algoritmo. Se le debe 
     especificar una matriz cuadrada A. La función devuelve el tiempo total en segundos de ejecución del 
     algoritmo, 2 matrices (L,U) y un vector P.
@@ -71,7 +71,7 @@ def factoriza_plu(A):
                [ 0. ,  0. ,  1.5]])
         >tiempo_total
         0.00083283
-        '''
+    '''
     start_time=time.time()
     P,L,U=factorizacion_PLU.PLU(A)
     end_time=time.time()
