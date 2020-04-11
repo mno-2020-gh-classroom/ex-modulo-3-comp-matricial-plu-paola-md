@@ -70,10 +70,10 @@ def factoriza_plu(A):
                [ 0. ,  4. ,  0. ],
                [ 0. ,  0. ,  1.5]])
         >tiempo_total
-        0.00083283
+        0.51068
     '''
     start_time=time.time()
-    P,L,U=factorizacion_PLU.PLU(A)
+    P,L,U=factorizacion_PLU.PLU_test(A)
     end_time=time.time()
     tiempo_total = end_time-start_time
     return tiempo_total, P, L, U
