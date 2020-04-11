@@ -1,11 +1,11 @@
 import numpy as np
-import scipy
-import scipy.linalg
 import pprint
+import scipy  
+import scipy.linalg
 import pandas as pd
 import factorizacion_PLU
 import crea_matrices
-import conteo_time
+import factoriza_plu
 
 def revision_PLU(nombre_archivo,num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     f= open(nombre_archivo,"w")
@@ -20,7 +20,7 @@ def revision_PLU(nombre_archivo,num_corridas,dim_limite_inf,dim_limite_sup,entra
         dimension.append(n)
         
         #modulo de conteo de tiempo
-        tiempo_total, P, L, U=conteo_time.conteo_time(A)
+        tiempo_total, P, L, U=factoriza_plu.factoriza_plu(A)
         tiempo_plu.append(tiempo_total)
         
         P_correcta, L_correcta, U_correcta = scipy.linalg.lu(A)
