@@ -2,6 +2,31 @@ import numpy as np
 from scipy.linalg import solve_triangular
 from math import ceil
 
+def validate(A):
+    '''
+    Esta función valida que una matrix sea cuadrada
+    ==========
+    * Entradas:
+      - A: un array de mxn 
+    * Salidas:
+      - Boolean: True si es cuadrada, false si no.
+    ==========
+    Ejemplo:
+      >>A = np.array([[2, 2, 3], [-4, -4, -3], [4, 8, 3]])
+      >>validate(A)
+      >True
+      >>B = np.array([[2, 2], [-4, -4], [4, 8]])
+      >>validate(A)
+      >False
+    '''
+    valid = False
+    A_column = A.shape[1]
+    if A_column != A.shape[0]:
+        raise ValueError('Please enter a squared matrix.')
+    else:
+        valid = True
+    return valid
+
 def forward_substitution(L, b):
     to_n = lambda n: np.arange(1, n+1)
     indexr = lambda i: i-1
@@ -142,52 +167,68 @@ def PLU(A):
        [ True,  True,  True],
        [ True,  True,  True]])
     '''
-    to_n = lambda n: np.arange(1, n+1)
-    indexr = lambda i: i-1
-    # inicialización de elementos
-    A = A.astype('float64')
-    n = A.shape[0]
-    L = np.eye(n)
-    U = np.zeros((n, n))
-    piv = np.arange(1, n-1+1)
-    v = np.zeros(n)
+    if (validate(A)):
+        to_n = lambda n: np.arange(1, n+1)
+        indexr = lambda i: i-1
+        # inicialización de elementos
+        A = A.astype('float64')
+        n = A.shape[0]
+        L = np.eye(n)
+        U = np.zeros((n, n))
+        piv = np.arange(1, n-1+1)
+        v = np.zeros(n)
 
-    for j in to_n(n):
-        if j == 1:
-            v = A[indexr(j):n, indexr(j)].copy()
-        else:
-            a = A[:, indexr(j)].copy()
-            for k in to_n(j-1):
-                aux = a[indexr(k)].copy()
-                a[indexr(k)] = a[indexr(piv[indexr(k)])].copy()
-                a[indexr(piv[indexr(k)])] = aux.copy()
-            z = forward_substitution(L[indexr(1):(j-1), indexr(1):(j-1)], a[indexr(1):(j-1)])
-            U[indexr(1):(j-1), indexr(j)] = z.copy()
-            v[indexr(j):n] = (a[indexr(j):n]-np.matmul(L[indexr(j):n, indexr(1):(j-1)], z)).copy()
-
-        if j < n:
-            mu = (np.argmax(np.abs(v[indexr(j):n]))+j).copy()
-            piv[indexr(j)] = mu.copy()
-            aux = v[indexr(j)].copy()
-            v[indexr(j)] = v[indexr(mu)].copy()
-            v[indexr(mu)] = aux.copy()
-            if v[indexr(j)] != 0:
-                L[indexr(j+1):n, indexr(j)] = (v[indexr(j+1):n]/v[indexr(j)]).copy()
+        for j in to_n(n):
+            if j == 1:
+                v = A[indexr(j):n, indexr(j)].copy()
             else:
-                #A es singular
-                print("A ES SINGULAR")
-                return -1 
-            if j > 1:
-                aux = L[indexr(j), indexr(1):(j-1)].copy()
-                L[indexr(j), indexr(1):(j-1)] = L[indexr(mu), indexr(1):(j-1)].copy()
-                L[indexr(mu), indexr(1):(j-1)] = aux.copy()
-        U[indexr(j), indexr(j)] = v[indexr(j)].copy()
+                a = A[:, indexr(j)].copy()
+                for k in to_n(j-1):
+                    aux = a[indexr(k)].copy()
+                    a[indexr(k)] = a[indexr(piv[indexr(k)])].copy()
+                    a[indexr(piv[indexr(k)])] = aux.copy()
+                z = forward_substitution(L[indexr(1):(j-1), indexr(1):(j-1)], a[indexr(1):(j-1)])
+                U[indexr(1):(j-1), indexr(j)] = z.copy()
+                v[indexr(j):n] = (a[indexr(j):n]-np.matmul(L[indexr(j):n, indexr(1):(j-1)], z)).copy()
 
-    P = get_P(piv)
+            if j < n:
+                mu = (np.argmax(np.abs(v[indexr(j):n]))+j).copy()
+                piv[indexr(j)] = mu.copy()
+                aux = v[indexr(j)].copy()
+                v[indexr(j)] = v[indexr(mu)].copy()
+                v[indexr(mu)] = aux.copy()
+                if v[indexr(j)] != 0:
+                    L[indexr(j+1):n, indexr(j)] = (v[indexr(j+1):n]/v[indexr(j)]).copy()
+                else:
+                    #A es singular
+                    print("A ES SINGULAR")
+                    return -1 
+                if j > 1:
+                    aux = L[indexr(j), indexr(1):(j-1)].copy()
+                    L[indexr(j), indexr(1):(j-1)] = L[indexr(mu), indexr(1):(j-1)].copy()
+                    L[indexr(mu), indexr(1):(j-1)] = aux.copy()
+            U[indexr(j), indexr(j)] = v[indexr(j)].copy()
 
-    return P, L, U
+        P = get_P(piv)
+        return P, L, U
 
 def solve( A, b):
+    '''
+    Esta función resuelve un sistema de ecuaciones de la forma Ax = b con la
+    factorización PLU
+    ==========
+    * Entradas:
+      - A: array de nxn.
+      - b: (vector) nx1, son las soluciones 
+    * Salidas:
+      - x (vector): nx1, con la solución del sistema de ecuaciones
+    ==========
+    Ejemplo:
+        >>A = np.array([[2, 2, 3], [-4, -4, -3], [4, 8, 3]])
+        >>b = np.array([1, 3, 2])
+        >>solve(A,b)
+        >array([-3.25,  1.25, 1.66])
+    '''
     A = A.astype('float64')
     b = b.astype('float64')
 
@@ -208,10 +249,25 @@ def solve( A, b):
 def nuestro_algoritmo(A, b):
     return solve(A,b)
 
-def solve_blocks(A,b):    
-    # Check that it is a squared matrix
-    A_column = A.shape[1]
-    if A_column == A.shape[0]:
+def solve_blocks(A,b):  
+    '''
+    Esta función resuelve un sistema de ecuaciones de la forma Ax = b con la
+    factorización PLU y por bloques
+    ==========
+    * Entradas:
+        - A: array de nxn.
+        - b: (vector) nx1, son las soluciones 
+    * Salidas:
+        - X (vector): nx1, con la solución del sistema de ecuaciones
+    ==========
+      Ejemplo:
+          >>A = np.array([[2, 2, 3], [-4, -4, -3], [4, 8, 3]])
+          >>b = np.array([1, 3, 2])
+          >>solve_blocks(A,b)
+          >array([-3.25,  1.25, 1.66])
+    '''
+    if (validate(A)):  
+        A_column = A.shape[1]
         if A_column % 2 == 0:
             x  = int(A_column/2)
         else:
@@ -238,12 +294,10 @@ def solve_blocks(A,b):
             X = np.block([x1,x2])
 
         except (Exception) as error :
-            print ("Matriz singular")
+            print ("Please enter a non-singular matrix")
             X = -1
 
-    else:
-        X = -2
-        print("Please enter a squared matrix")
     return X
+
 
 
