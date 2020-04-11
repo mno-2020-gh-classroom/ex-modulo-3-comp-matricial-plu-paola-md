@@ -2,7 +2,7 @@ import numpy as np
 import pprint
 import pandas as pd
 import time
-import factorizacion_PLU
+import TodoJunto
 
 def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     '''
@@ -34,8 +34,7 @@ def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_su
     '''
     n=np.random.randint(dim_limite_inf, dim_limite_sup)
     A=np.array(np.random.randint(entradas_lim_inf,entradas_lim_sup, size=(n, n)))
-    x_real=np.array(np.random.randint(entradas_lim_inf,entradas_lim_sup, size=(n, 1)))
-    return A,n,x_real
+    return A,n
 
 def factoriza_plu(A):
     '''
@@ -73,14 +72,14 @@ def factoriza_plu(A):
         0.51068
     '''
     start_time=time.time()
-    P,L,U=factorizacion_PLU.PLU_test(A)
+    P,L,U=TodoJunto.PLU(A)
     end_time=time.time()
     tiempo_total = end_time-start_time
     return tiempo_total, P, L, U
 
 def solve_A_b(A,b):
     start_time=time.time()
-    x_est = factorizacion_PLU.solve(A, b)
+    x_est = TodoJunto.solve(A, b)
     end_time=time.time()
     tiempo_total = end_time-start_time
     return tiempo_total, x_est
@@ -94,7 +93,7 @@ def revision_PLU(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,ent
     for i in range(0,num_corridas):
         
         #modulo que crea matrices de forma aleatoria
-        A,n,x_real=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         dimension.append(n)
         
         #modulo que implementa el algoritmo PLU y cuenta el tiempo
@@ -122,19 +121,24 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
     dimension=[]
     estado_x=[]
     tiempo_x=[]
+    error_x=[]
     for i in range(0,num_corridas):
         #modulo que crea matrices de forma aleatoria
-        A,n,x_real=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         dimension.append(n)
+
+        x_real = np.round(np.random.normal(dim_limite_inf, dim_limite_sup, n),2)
         
         b = np.dot(A, x_real)
         tiempo_total_x,x_est = solve_A_b(A, b)
         tiempo_x.append(tiempo_total_x)
         status_x='Correcto' if np.allclose(x_est,x_real)==True else 'Incorrecto'
         estado_x.append(status_x)
+        error_rel = np.mean(np.abs(x_real-x_est)/np.abs(x_real))
+        error_x.append(error_rel)
         
         
-    data={'dimension':dimension,'tiempo_x':tiempo_x,'estado_x':estado_x}       
+    data={'dimension':dimension,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
     resultados=pd.DataFrame(data)
     return resultados
     
