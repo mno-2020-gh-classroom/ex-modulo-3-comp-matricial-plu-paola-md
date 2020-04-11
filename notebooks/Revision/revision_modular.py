@@ -7,7 +7,8 @@ import factorizacion_PLU
 def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     n=np.random.randint(dim_limite_inf, dim_limite_sup)
     A=np.array(np.random.randint(entradas_lim_inf,entradas_lim_sup, size=(n, n)))
-    return A,n
+    x_real=np.array(np.random.randint(entradas_lim_inf,entradas_lim_sup, size=(n, 1)))
+    return A,n,x_real
 
 def factoriza_plu(A):
     start_time=time.time()
@@ -16,8 +17,15 @@ def factoriza_plu(A):
     tiempo_total = end_time-start_time
     return tiempo_total, P, L, U
 
-def revision_PLU(nombre_archivo,num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
-    f= open(nombre_archivo,"w")
+def solve_A_b(A,b):
+    start_time=time.time()
+    x_est = factorizacion_PLU.solve(A, b)
+    end_time=time.time()
+    tiempo_total = end_time-start_time
+    return tiempo_total, x_est
+
+def revision_PLU(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
+    
     dimension=[]
     estado_plu=[]
     tiempo_plu=[]
@@ -25,11 +33,11 @@ def revision_PLU(nombre_archivo,num_corridas,dim_limite_inf,dim_limite_sup,entra
     for i in range(0,num_corridas):
         
         #modulo que crea matrices de forma aleatoria
-        A,n=crea_matrices.crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        A,n,x_real=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         dimension.append(n)
         
         #modulo que implementa el algoritmo PLU y cuenta el tiempo
-        tiempo_total, P, L, U=factoriza_plu.factoriza_plu(A)
+        tiempo_total, P, L, U=factoriza_plu(A)
         tiempo_plu.append(tiempo_total)
         
         
@@ -37,23 +45,36 @@ def revision_PLU(nombre_archivo,num_corridas,dim_limite_inf,dim_limite_sup,entra
             status='Correcto'
             estado_plu.append(status)
             
+            
         else:
             status='Incorrecto'
             estado_plu.append(status)
-        
-            pprint.pprint('Incorrecto para A igual a:',f)
-            pprint.pprint(A, f)
-            pprint.pprint('P:',f)
-            pprint.pprint(P, f)
-            pprint.pprint('L',f)
-            pprint.pprint(L, f)
-            pprint.pprint('U:',f)                
-            pprint.pprint(U, f)
-
+            
+                    
         
     data={'dimension':dimension, 'tiempo_plu':tiempo_plu,'status_plu':estado_plu}       
     resultados=pd.DataFrame(data)
     return resultados
-    f.close()
     
-  
+    
+def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
+    dimension=[]
+    estado_x=[]
+    tiempo_x=[]
+    for i in range(0,num_corridas):
+        #modulo que crea matrices de forma aleatoria
+        A,n,x_real=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        dimension.append(n)
+        
+        b = np.dot(A, x_real)
+        tiempo_total_x,x_est = solve_A_b(A, b)
+        tiempo_x.append(tiempo_total_x)
+        status_x='Correcto' if np.allclose(x_est,x_real)==True else 'Incorrecto'
+        estado_x.append(status_x)
+        
+        
+    data={'dimension':dimension,'tiempo_x':tiempo_x,'estado_x':estado_x}       
+    resultados=pd.DataFrame(data)
+    return resultados
+    
+    
