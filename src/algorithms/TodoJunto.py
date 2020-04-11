@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.linalg import solve_triangular
-
+from math import ceil
 
 def forward_substitution(L, b):
     to_n = lambda n: np.arange(1, n+1)
