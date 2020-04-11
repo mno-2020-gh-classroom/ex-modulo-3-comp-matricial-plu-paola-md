@@ -1,7 +1,7 @@
 import numpy as np
 import src.algorithms.EliminacionPorBloques as blocks
 import src.algorithms.FactorizacionPLU as plu
-
+from src.algorithms.TodoJunto import solve_blocks
 
 def prueba_bloques():
     eliminador = blocks.EliminacionPorBloques()
@@ -22,13 +22,13 @@ def prueba_bloques():
     x_prueba=np.linalg.solve(MAT_A,sol_a)
     print(x_prueba)
 
-    x_nuestra = eliminador.solve_blocks(MAT_A,sol_a)
+    x_nuestra = solve_blocks(MAT_A,sol_a)
     print(x_nuestra)
 
     x_prueba=np.linalg.solve(MAT_B,sol_b)
     print(x_prueba)
 
-    x_nuestra = eliminador.solve_blocks(MAT_B,sol_b)
+    x_nuestra = solve_blocks(MAT_B,sol_b)
     print(x_nuestra)
     
 def prueba_lu():
