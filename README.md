@@ -1,6 +1,6 @@
 # Examen de cómputo matricial equipo PLU
 
-El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
+# Factorización PLU: Cómputo Matricial
 
 **Integrantes del equipo**
 
@@ -13,6 +13,24 @@ El equipo creado por el prof se subdivide en tres grupos: grupo de programación
 | 5 | Maggie    | Revisión de código |      maggiemusa        |  
 | 6 | Karla     | Revisión de código |      alpika19186       |
 | 7 | Yalidt    | Revisión de código |      Yalidt            |
+
+## Factorización PLU simple
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Actividades y roles en el examen:
+El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
+
 
 A continuación se detallan las tareas a realizar en cada grupo.
 
