@@ -25,11 +25,11 @@ def prueba_bloques():
     x_nuestra = eliminador.solve_blocks(MAT_A,sol_a)
     print(x_nuestra)
 
-    #x_prueba=np.linalg.solve(B,b)
-    #print(x_prueba)
+    x_prueba=np.linalg.solve(MAT_B,sol_b)
+    print(x_prueba)
 
-    #x_nuestra = eliminador.solve_blocks(B,b)
-    #print(x_nuestra)
+    x_nuestra = eliminador.solve_blocks(MAT_B,sol_b)
+    print(x_nuestra)
     
 def prueba_lu():
     factorizador = plu.FactorizacionPLU()
@@ -70,7 +70,7 @@ def prueba_lu():
     print(factorizador.solve(MAT_A, sol_a))
 
 def main():
-    print("hello world!")
+    print("Vamos a probaaar :)")
     prueba_bloques()
     #prueba_lu()
     

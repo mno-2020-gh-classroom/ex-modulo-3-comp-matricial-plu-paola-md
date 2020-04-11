@@ -4,14 +4,13 @@ from math import ceil
 import src.algorithms.FactorizacionPLU as plu
 
 class EliminacionPorBloques():
+    factorizador = plu.FactorizacionPLU()
+    
     def __init__(self):
         print("EliminacionPorBloques")
     
-    #Cambiar en el futuro
     def nuestro_algoritmo(self, A, b):
-        #return np.linalg.solve(A,b)
-        factorizador = plu.FactorizacionPLU()
-        return factorizador.solve(A,b)
+        return self.factorizador.solve(A,b)
 
     def solve_blocks(self,A,b):    
         # Check that it is a squared matrix
@@ -21,7 +20,7 @@ class EliminacionPorBloques():
                 x  = int(A_column/2)
             else:
                 x = int(ceil(A_column/2))
-            print(x)
+     
             A11 = A[:x,:x]
             A12 = A[:x,x:]
             A21 = A[x:,:x]

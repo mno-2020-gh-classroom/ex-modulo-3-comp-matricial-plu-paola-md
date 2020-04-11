@@ -3,7 +3,7 @@ from scipy.linalg import solve_triangular
 
 class FactorizacionPLU():
     def __init__(self):
-        print("in init")
+        print("FactorizacionPLU")
     
     def forward_substitution(self, L, b):
         to_n = lambda n: np.arange(1, n+1)
@@ -198,10 +198,11 @@ class FactorizacionPLU():
             #Paso 1
             P, L, U = self.PLU(A)
             #Paso 2
-            d = self.forward_substitution(L, np.matmul(P, b))
+            #d = self.forward_substitution(L, np.matmul(P, b))
+            d = solve_triangular(L, np.matmul(P, b), lower = True)
             #Paso 3
-            x = self.backward_substitution(U, d)
-            
+            #x = self.backward_substitution(U, d)
+            x = solve_triangular(U, d, lower = False)
         except (Exception) as error :
             print ("Matriz singular")
             x = -1
