@@ -1,7 +1,7 @@
 import time
 import factorizacion_PLU
 
-def conteo_time(A):
+def factoriza_plu(A):
     start_time=time.time()
     P,L,U=factorizacion_PLU.PLU(A)
     end_time=time.time()
