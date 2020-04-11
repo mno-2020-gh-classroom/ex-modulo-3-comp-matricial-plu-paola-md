@@ -291,6 +291,7 @@ def solve_blocks(A,b):
             X = np.block([x1,x2])
 
         except (Exception) as error :
+            raise ValueError('Please enter a non-singular matrix.')
             print ("Please enter a non-singular matrix")
             X = -1
 
