@@ -1,7 +1,8 @@
 import numpy as np
 import pprint
 import pandas as pd
-#import factorizacion_PLU
+import time
+import factorizacion_PLU
 
 def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     n=np.random.randint(dim_limite_inf, dim_limite_sup)
