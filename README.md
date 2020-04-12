@@ -28,11 +28,11 @@ Si $A \in  \mathbb{R}^{n \times n}$ es no singular, existen matrices $P, L, U$ d
 
 ### Programación del código simple en Python
 
-Para poder utilizar el código, es necesario instalar los paquetes que se encuentran en el archivo **Requirements.txt**
+Para poder utilizar el código, es necesario instalar los paquetes que se encuentran en el archivo **Requirements.txt**.
 
 * Requirements: Importar los siquientes paquetes: numpy as np , timeit, matplotlib.pyplot as plt
 
-* Breve descripción del script: Factorización_PLU.py
+* Se puede encontrar un ejemplo de la implementación en Python de este código en el siguiente notebook [Factorización_PLU](notebooks/Programacion/FactorizacionPLU.ipynb).
 
 
 
