@@ -59,9 +59,11 @@ Este script nos ayuda a verificar el tiempo y memoria utilizados al cambiar las 
 
 Se puede demostrar que si A es no singular, L y U existen y son únicas.
 
-Lo que hicimos en la sección de la factorización PLU fue aplicar recursivamente los pasos de la eliminación Gaussiana para que los elementos de las matrices L y U se calculen de forma iterativa utilizando un vector pivote.
+En la sección de la factorización PLU se aplicaron recursivamente los pasos de la eliminación Gaussiana para que los elementos de las matrices L y U se calculen de forma iterativa utilizando un vector pivote.
 
 Para aprovechar de una forma más eficiente el uso de la memoria y del caché al momento de realizar el cálculo de la factorización LU, se puede determinar la partición de la matriz A, tomando submatrices de tamaño $k \times k$ 
+
+
 
 ### Programación del código por bloques en Python
 
