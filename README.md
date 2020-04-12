@@ -14,8 +14,25 @@
 | 6 | Karla     | Revisión de código |      alpika19186       |
 | 7 | Yalidt    | Revisión de código |      Yalidt            |
 
+El objetivo de este programa es resolver la factorización PLU por bloques para matrices grandes.
+
 ## Factorización PLU simple
 
+La factorización $LU$ de una matriz resume el proceso de [eliminación Gaussiana](https://en.wikipedia.org/wiki/Gaussian_elimination) aplicada a una matriz, lo cual es conveniente en términos del número total de operaciones de punto flotante cuando se desea calcular la inversa de una matriz o cuando se resolverá una serie de sistema de ecuaciones con una misma matriz de coeficientes. 
+
+Frecuentemente no es posible escalonar una matriz solamente con operaciones de eliminación, por lo se requiere realizar un intercambio de renglones; para este tipo de matrices no existe la factorización $LU$ y lo que se aplica es la factorización $PA = LU$, donde la matriz P es una matriz de permutación, la cual se obtiene a partir de la matriz identidad al realizar el mismo intercambio de renglones. Ver [Factorización PLU](http://cb.mty.itesm.mx/ma1010/materiales/ma1010-26.pdf)
+
+**Teorema**
+
+Si $A \in  \mathbb{R}^{n \times n}$ es no singular, existen matrices $P, L, U$ de permutación, triangular inferior con $1$'s en la diagonal y triangular superior invertible respectivamente tales que $PA = LU$.
+
+### Programación del código simple en Python
+
+Para poder utilizar el código, es necesario instalar los paquetes que se encuentran en el archivo **Requirements.txt**
+
+* Requirements: Importar los siquientes paquetes: numpy as np , timeit, matplotlib.pyplot as plt
+
+* Breve descripción del script: Factorización_PLU.py
 
 
 
