@@ -69,7 +69,7 @@ def factoriza_plu(A):
                [ 0. ,  4. ,  0. ],
                [ 0. ,  0. ,  1.5]])
         >tiempo_total
-        0.51068
+        0.00171113
     '''
     start_time=time.time()
     P,L,U=TodoJunto.PLU(A)
@@ -84,17 +84,41 @@ def solve_A_b(A,b):
     tiempo_total = end_time-start_time
     return tiempo_total, x_est
 
+def condicion(A):
+        '''
+    Esta función calcula la condición de la matriz cuadrada A. La condición sirve para ver cómo se comportará el algoritmo ante pequeñas perturbaciones en x.
+
+    ==========
+    * Entradas:
+        - A: matriz cuadrada de dimensión nxn
+    * Salidas:
+        - cond (float): condicion de la matriz A
+    ==========
+    Ejemplo:
+        >>A = np.array([[2, 2, 3], [-4, -4, -3], [4, 8, 3]])
+        >>condicion(A)
+        >cond
+        13.8829
+    '''
+    cond=np.linalg.cond(A)
+    return cond
+
 def revision_PLU(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     
-    dimension=[]
+    dimension_A=[]
     estado_plu=[]
     tiempo_plu=[]
+    condicion_A=[]
     #tipo_matriz=[]
     for i in range(0,num_corridas):
         
         #modulo que crea matrices de forma aleatoria
         A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
-        dimension.append(n)
+        dimension_A.append(n)
+        
+        #modulo que calcula la condicion de A
+        cond=condicion(A)
+        condicion_A.append(cond)
         
         #modulo que implementa el algoritmo PLU y cuenta el tiempo
         tiempo_total, P, L, U=factoriza_plu(A)
@@ -112,20 +136,20 @@ def revision_PLU(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,ent
             
                     
         
-    data={'dimension':dimension, 'tiempo_plu':tiempo_plu,'status_plu':estado_plu}       
+    data={'dimension_A':dimension_A,'condicion_A':condicion_A, 'tiempo_plu':tiempo_plu,'status_plu':estado_plu}       
     resultados=pd.DataFrame(data)
     return resultados
     
     
 def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
-    dimension=[]
+    dimension_A=[]
     estado_x=[]
     tiempo_x=[]
     error_x=[]
     for i in range(0,num_corridas):
         #modulo que crea matrices de forma aleatoria
         A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
-        dimension.append(n)
+        dimension_A.append(n)
 
         x_real = np.round(np.random.normal(dim_limite_inf, dim_limite_sup, n),2)
         
@@ -138,7 +162,7 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         error_x.append(error_rel)
         
         
-    data={'dimension':dimension,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
+    data={'dimension_A':dimension_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
     resultados=pd.DataFrame(data)
     return resultados
     
