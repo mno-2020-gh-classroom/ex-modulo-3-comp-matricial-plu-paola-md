@@ -34,7 +34,46 @@ Para poder utilizar el código, es necesario instalar los paquetes que se encuen
 
 * Se puede encontrar un ejemplo de la implementación en Python de este código en el siguiente notebook [Factorización_PLU](notebooks/Programacion/FactorizacionPLU.ipynb).
 
+### Pruebas del código simple en Python
 
+* Corroborar el cálculo de P,L,U y X:
+
+Este script nos ayuda a verificar que los valores obtenidos para P,L,U y X están bien calculados usando scipy para comprobar. 
+
+1. Generamos matrices de distinta dimensión de forma aleatoria
+2. Obtenemos los valores P, L y U para las matrices llamando al script Factorización_PLU.py. Si U contiene un cero en la diagonal, la matriz es singular y se detiene. Si no, continúa con la solución.
+3. Comparamos los valores obtenidos de P, L y U con los obtenidos en scipy para matrices pequeñas y medianas (10^2 o 10^3).
+4. Si las matrices son iguales, cotinuamos resolviendo para X usando el script Factorización_PLU.py.
+5. Comparamos los valores obtenidos de X los obtenidos en scipy para matrices pequeñas y medianas (10^2 o 10^3).
+
+* Evaluación del tiempo de ejecución y memoria al variar la dimensión:
+
+Este script nos ayuda a verificar el tiempo y memoria utilizados al cambiar las dimensiones de las matrices.
+
+1. Generamos matrices de distinta dimensión de forma aleatoria
+2. Obtenemos los valores P, L, U y X para las matrices llamando al script Factorización_PLU.py. Si U contiene un cero en la diagonal, la matriz es singular y se detiene. Si no, continúa con la solución.
+3. Medimos el tiempo de ejecución y la memoria y se exportan los valores a un data frame para generar gráficas con ellos.
+5. Graficamos los distintos valores de tiempo, memoria etc dependiendo el tamaño de la matriz.
+
+## Factorización PLU por bloques
+
+Se puede demostrar que si A es no singular, L y U existen y son únicas.
+
+Lo que hicimos en la sección de la factorización PLU fue aplicar recursivamente los pasos de la eliminación Gaussiana para que los elementos de las matrices L y U se calculen de forma iterativa utilizando un vector pivote.
+
+Para aprovechar de una forma más eficiente el uso de la memoria y del caché al momento de realizar el cálculo de la factorización LU, se puede determinar la partición de la matriz A, tomando submatrices de tamaño $k \times k$ 
+
+### Programación del código por bloques en Python
+
+### Reporte de resultados
+
+#Mostrar los principales resultados al variar la dimensión, datos de entrada de A, datos de entrada de b contra el tiempo, la memoria etc.
+
+#Figura 1. Comparación de la dimensión de la matriz contra el tiempo promedio de ejecución
+
+#Figura 2. Comparación de la dimensión de la matriz contra el uso de memoria
+
+#Figura 3. Comparación de la dimensión de la matriz contra el error relativo
 
 
 
