@@ -1,6 +1,4 @@
-# Examen de cómputo matricial equipo PLU
-
-# Factorización PLU: Cómputo Matricial
+# Factorización PLU: Examen de Cómputo Matricial
 
 **Integrantes del equipo**
 
@@ -26,35 +24,6 @@ Frecuentemente no es posible escalonar una matriz solamente con operaciones de e
 
 Si $A \in  \mathbb{R}^{n \times n}$ es no singular, existen matrices $P, L, U$ de permutación, triangular inferior con $1$'s en la diagonal y triangular superior invertible respectivamente tales que $PA = LU$.
 
-### Programación del código simple en Python
-
-Para poder utilizar el código, es necesario instalar los paquetes que se encuentran en el archivo **Requirements.txt**.
-
-* Requirements: Importar los siquientes paquetes: numpy as np , timeit, matplotlib.pyplot as plt
-
-* Se puede encontrar un ejemplo de la implementación en Python de este código en el siguiente notebook [Factorización_PLU](notebooks/Programacion/FactorizacionPLU.ipynb).
-
-### Pruebas del código simple en Python
-
-* Corroborar el cálculo de P,L,U y X:
-
-Este script nos ayuda a verificar que los valores obtenidos para P,L,U y X están bien calculados usando scipy para comprobar. 
-
-1. Generamos matrices de distinta dimensión de forma aleatoria
-2. Obtenemos los valores P, L y U para las matrices llamando al script Factorización_PLU.py. Si U contiene un cero en la diagonal, la matriz es singular y se detiene. Si no, continúa con la solución.
-3. Comparamos los valores obtenidos de P, L y U con los obtenidos en scipy para matrices pequeñas y medianas (10^2 o 10^3).
-4. Si las matrices son iguales, cotinuamos resolviendo para X usando el script Factorización_PLU.py.
-5. Comparamos los valores obtenidos de X los obtenidos en scipy para matrices pequeñas y medianas (10^2 o 10^3).
-
-* Evaluación del tiempo de ejecución y memoria al variar la dimensión:
-
-Este script nos ayuda a verificar el tiempo y memoria utilizados al cambiar las dimensiones de las matrices.
-
-1. Generamos matrices de distinta dimensión de forma aleatoria
-2. Obtenemos los valores P, L, U y X para las matrices llamando al script Factorización_PLU.py. Si U contiene un cero en la diagonal, la matriz es singular y se detiene. Si no, continúa con la solución.
-3. Medimos el tiempo de ejecución y la memoria y se exportan los valores a un data frame para generar gráficas con ellos.
-5. Graficamos los distintos valores de tiempo, memoria etc dependiendo el tamaño de la matriz.
-
 ## Factorización PLU por bloques
 
 Se puede demostrar que si A es no singular, L y U existen y son únicas.
@@ -63,13 +32,30 @@ En la sección de la factorización PLU se aplicaron recursivamente los pasos de
 
 Para aprovechar de una forma más eficiente el uso de la memoria y del caché al momento de realizar el cálculo de la factorización LU, se puede determinar la partición de la matriz A, tomando submatrices de tamaño $k \times k$ 
 
+## Programación del código en Python
 
+Antes que nada, es necesario instalar e importar los paquetes que se encuentran en el archivo **Requirements.txt**.
 
-### Programación del código por bloques en Python
+- La programación consistió básicamente en crear x funciones que hicieran a grandes razgos, lo siguiente:
+****RELLENAR ESTA PARTE****
 
-### Reporte de resultados
+* El script que corresponde a la programción se llama TodoJunto.py y se encuentra en [Factorización_PLU](notebooks/Programacion/FactorizacionPLU.ipynb).****VER CUAL SERA EL NOMBRE FINAL DEL SCRIPT Y DONDE VA A VIVIR***
 
-#Mostrar los principales resultados al variar la dimensión, datos de entrada de A, datos de entrada de b contra el tiempo, la memoria etc.
+## Revisión del código en Python
+
+Las pruebas que se realizaron se dividen principalmente en tres:
+
+- La primera prueba consiste en generar matrices de distinta dimensión de forma aleatoria y en comprobar que el algoritmo factorizacion_PLU realiza de manera correcta la factorización verificando que PA=LU. Además, guarda un registro en un data frame de la dimensión de la matriz A, la condición de la matriz A, el tiempo que tarda en realizarse la factorizacion PLU y el estado correcto o incorrecto de la comprobación. Esta prueba corresponde a la función revision_PLU que se encuentra en el script revisión_modular.py [Revisión_PLU](notebooks/Revision/revision_modular.py).
+
+- La segunda prueba consiste en generar matrices de distinta dimensión de forma aleatoria nuevamente, realizar la factorización PLU y verificar que la solución estimada del sistema de ecuaciones "x estimada" sea la correcta al comparar con la "x real". Además, guarda un registro en un data frame de la dimensión de la matriz A, el tiempo que tarda en realizarse la comprobación de x, el el estado correcto o incorrecto de la comprobación y el error realativo entre la "x estimada" y la "x real". Esta prueba corresponde a la función revision_PLU que se encuentra en el script revisión_modular.py [Revisión_X](notebooks/Revision/revision_modular.py).
+
+- La tercera prueba consiste en la verificación por bloques de... ****ACABAR ESTA PARTE***
+
+## Reporte de resultados
+
+Los principales resultados que se observaron al realizar la factorzación PLU son:
+
+Los parámetros que se evaluaron son: dimensión de la matriz A, datos de entrada de A, datos de entrada de b contra el tiempo, la memoria etc.
 
 #Figura 1. Comparación de la dimensión de la matriz contra el tiempo promedio de ejecución
 
@@ -78,13 +64,7 @@ Para aprovechar de una forma más eficiente el uso de la memoria y del caché al
 #Figura 3. Comparación de la dimensión de la matriz contra el error relativo
 
 
-
-
-
-
-
-
-
+------------------------------------------------------------------------------------------------------------------------------
 
 # Actividades y roles en el examen:
 El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
@@ -129,6 +109,4 @@ Otras referencias útiles:
 
 
 ## % de la calificación final: 20 puntos
-
-
 
