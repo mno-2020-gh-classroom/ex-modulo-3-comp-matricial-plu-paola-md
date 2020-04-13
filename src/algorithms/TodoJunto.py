@@ -7,7 +7,7 @@ def validate(A):
     Esta función valida que una matrix sea cuadrada
     ==========
     * Entradas:
-      - A: un array de mxn 
+      - A: un array de mxn
     * Salidas:
       - Boolean: True si es cuadrada, false si no.
     ==========
@@ -37,10 +37,10 @@ def forward_substitution(L, b):
     Lx = b (1)
     ==========
     * Entradas:
-        - L (array): matriz no singular, triangular inferior de nxn. 
+        - L (array): matriz no singular, triangular inferior de nxn.
         - b (array): vector de nx1
     * Salidas:
-        - y (array): vector de nx1, solución del sistema (1): Lx = b 
+        - y (array): vector de nx1, solución del sistema (1): Lx = b
     ==========
     Ejemplo:
         >>L = np.matrix([[1,0],[2,3]])
@@ -50,12 +50,12 @@ def forward_substitution(L, b):
 
     ==========
     Ref.:
-    GCV - matrix computations (2013) 
-    Row-Oriented Forward Substitution (algorithm 3.1.1), p.106 
+    GCV - matrix computations (2013)
+    Row-Oriented Forward Substitution (algorithm 3.1.1), p.106
     *********************
-    Notas: 
+    Notas:
     Falta poner warnings por si el usuario mete inputs malos:
-        ej: matriz no ciuadrada, matriz singular, las dimensiones de b 
+        ej: matriz no ciuadrada, matriz singular, las dimensiones de b
         y Y no coinciden
     '''
     n = len(b)
@@ -80,10 +80,10 @@ def backward_substitution( U, b):
     Lx = b (1)
     ==========
     * Entradas:
-        - U (array): matriz no singular, triangular superior de nxn. 
+        - U (array): matriz no singular, triangular superior de nxn.
         - b (array): vector de nx1
     * Salidas:
-        - y: vector de nx1, solución del sistema (1): Ux = b 
+        - y: vector de nx1, solución del sistema (1): Ux = b
     ==========
     Ejemplo:
         >>U = np.matrix([[1, 2],[0,3]])
@@ -93,8 +93,8 @@ def backward_substitution( U, b):
 
     ==========
     Ref.:
-    GCV - matrix computations (2013) 
-    Row-Oriented Backward Substitution (algorithm 3.1.2), p.107 
+    GCV - matrix computations (2013)
+    Row-Oriented Backward Substitution (algorithm 3.1.2), p.107
     '''
     n = len(b)
     x = np.zeros(n)
@@ -111,11 +111,11 @@ def get_P(piv):
     to_n = lambda n: np.arange(1, n+1)
     indexr = lambda i: i-1
     '''
-    Esta función obtiene la matriz pivote derivada del intercambio de elementos 
+    Esta función obtiene la matriz pivote derivada del intercambio de elementos
     en la matriz identidad original
     ==========
     * Entradas:
-        - p: índices 
+        - p: índices
     * Salidas:
         - P (matriz): matriz de permutación de nxn
 
@@ -132,18 +132,18 @@ def get_P(piv):
 
 def PLU(A):
     '''
-    Esta función desarrolla la factorizacióón PA = LU, donde P es la matriz de 
-    permutación codificada por piv(l:n - 1), guarda los ííndices fila de los 
+    Esta función desarrolla la factorizacióón PA = LU, donde P es la matriz de
+    permutación codificada por piv(l:n - 1), guarda los ííndices fila de los
     pivotes, de tal modo que la columnas intercambiadas se guardan en el vector
-    P. 
+    P.
     Esta función devuelve P en el sistema:
     Lx = b (1)
     ==========
     * Entradas:
-        - A: array de nxn. 
+        - A: array de nxn.
     * Salidas:
-        - P (vector): nx1, con los ííndices de las columnas intercambiadas en 
-        el pivoteo. 
+        - P (vector): nx1, con los ííndices de las columnas intercambiadas en
+        el pivoteo.
         - L (matriz): matriz triangular inferior de nxn
         - U (matriz): matriz triangular superior nxn
     ==========
@@ -190,6 +190,9 @@ def PLU(A):
                 z = forward_substitution(L[indexr(1):(j-1), indexr(1):(j-1)], a[indexr(1):(j-1)])
                 U[indexr(1):(j-1), indexr(j)] = z.copy()
                 v[indexr(j):n] = (a[indexr(j):n]-np.matmul(L[indexr(j):n, indexr(1):(j-1)], z)).copy()
+                if v[indexr(j)] == 0:
+                    raise ValueError('Please enter a non-singular matrix. (j==1)')
+
 
             if j < n:
                 mu = (np.argmax(np.abs(v[indexr(j):n]))+j).copy()
@@ -200,7 +203,7 @@ def PLU(A):
                 if v[indexr(j)] != 0:
                     L[indexr(j+1):n, indexr(j)] = (v[indexr(j+1):n]/v[indexr(j)]).copy()
                 else:
-                    raise ValueError('Please enter a non-singular matrix.')
+                    raise ValueError('Please enter a non-singular matrix. (j<n)')
                 if j > 1:
                     aux = L[indexr(j), indexr(1):(j-1)].copy()
                     L[indexr(j), indexr(1):(j-1)] = L[indexr(mu), indexr(1):(j-1)].copy()
@@ -217,7 +220,7 @@ def solve( A, b):
     ==========
     * Entradas:
       - A: array de nxn.
-      - b: (vector) nx1, son las soluciones 
+      - b: (vector) nx1, son las soluciones
     * Salidas:
       - x (vector): nx1, con la solución del sistema de ecuaciones
     ==========
@@ -246,14 +249,14 @@ def solve( A, b):
 def nuestro_algoritmo(A, b):
     return solve(A,b)
 
-def solve_blocks(A,b):  
+def solve_blocks(A,b):
     '''
     Esta función resuelve un sistema de ecuaciones de la forma Ax = b con la
     factorización PLU y por bloques
     ==========
     * Entradas:
         - A: array de nxn.
-        - b: (vector) nx1, son las soluciones 
+        - b: (vector) nx1, son las soluciones
     * Salidas:
         - X (vector): nx1, con la solución del sistema de ecuaciones
     ==========
@@ -263,7 +266,7 @@ def solve_blocks(A,b):
           >>solve_blocks(A,b)
           >array([-3.25,  1.25, 1.66])
     '''
-    if (validate(A)):  
+    if (validate(A)):
         A_column = A.shape[1]
         if A_column % 2 == 0:
             x  = int(A_column/2)
@@ -296,6 +299,3 @@ def solve_blocks(A,b):
             X = -1
 
     return X
-
-
-
