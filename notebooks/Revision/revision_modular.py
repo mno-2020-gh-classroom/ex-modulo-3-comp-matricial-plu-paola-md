@@ -77,6 +77,36 @@ def factoriza_plu(A):
     tiempo_total = end_time-start_time
     return tiempo_total, P, L, U
 
+def resuelve_bloques(A,B):
+    '''
+    Esta función ejecuta el algoritmo de SEL por medio de bloques y mide el tiempo de ejecución total del algoritmo. Se le debe 
+    especificar una matriz cuadrada A y el vector B. La función devuelve el tiempo total en segundos de ejecución del 
+    algoritmo, 2 matrices (L,U) y un vector P.
+    
+    * Para ver más información sobre la función solve_blocks, favor de consultar su documentación.
+
+    ==========
+    * Entradas:
+        - A (matriz): matriz cuadrada de dimensión nxn
+        - B(vector): vector de tamañano nx1
+    * Salidas:
+        - P (vector): nx1, con los índices de las columnas intercambiadas en el pivoteo.
+        - L (matriz): matriz triangular inferior de nxn
+        - U (matriz): matriz triangular superior nxn
+        - timempo_total (float): tiempo total en segundos que tarda la ejecución del algoritmo PLU.
+    ==========
+    Ejemplo:
+        >>A = np.array([[1.,  4., -2., -5.], [-3.,  9.,  8.,  7.], [5.,  1., -6., -4],[ 6., -1.,  2.,  8.]])
+        >>B = np.array([3,0,7,6], dtype=np.float)
+        >X 
+        >array([ 0.99047619  0.52539683 -0.36269841  0.16349206])
+    '''
+    start_time=time.time()
+    X_algoritmo=TodoJunto.solve_blocks(A,B)
+    end_time=time.time()
+    tiempo_total = end_time-start_time      
+    return tiempo_total,X_algoritmo
+
 def solve_A_b(A,b):
     '''
     Esta función ejecuta el algoritmo que resuelve un sistema de ecuaciones de la forma Ax = b con la
@@ -261,3 +291,98 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
     data={'dimension_A':dimension_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
     resultados_x=pd.DataFrame(data)
     return resultados_x
+
+def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
+    """
+     Parametros
+    ----------   
+    num_corridas : numero de veces que queremos probar el algoritmo de "Solve_blocks"
+    dim_limite_inf : es el límite inferior de las entradas para la matriz random a generar.
+    dim_limite_sup : es el límite superior de las entradas para la matriz random a generar.
+    entradas_lim_inf : es el límite inferior del tamaño de la matriz, buscamos matrices de nxn.
+    entradas_lim_sup : es el límite superior del tamaño de la matriz, buscamos matrices de nxn.
+        
+    Salidas
+    -------
+    resultados : Un dataframe con el nombre de resultados, una vez evaluado el algoritmo con le número de corridas ingresadas.
+    """
+    dimension=[]
+    solucion_bloques=[]
+    tiempo_bloques=[]
+    error_absoluto=[]
+    
+    for i in range(0,num_corridas):
+        
+        #modulo que crea la matriz random
+        A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        X=np.random.randint(entradas_lim_inf,entradas_lim_sup,size=(n))
+        B=A@X   
+        dimension.append(n)
+        
+        tiempo_total,X_algoritmo=resuelve_bloques(A,B)
+        tiempo_bloques.append(tiempo_total)
+        
+        error_abs=np.mean(np.fabs(X_algoritmo-X))
+        error_absoluto.append(error_abs)
+        
+        if(np.allclose(X,X_algoritmo)==True):
+            status='Correcto'
+            solucion_bloques.append(status)
+        else:
+            pprint.pprint('Incorrecto para A igual a:')
+            pprint.pprint(A)
+            status='Incorrecto'
+            solucion_bloques.append(status)
+
+        
+    data={'dimension':dimension, 'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
+    resultados=pd.DataFrame(data)
+    return resultados
+
+def revision_bloques_v2(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
+    """
+     Parametros
+    ----------   
+    num_corridas : numero de veces que queremos probar el algoritmo de "Solve_blocks"
+    dim_limite_inf : es el límite inferior de las entradas para la matriz random a generar.
+    dim_limite_sup : es el límite superior de las entradas para la matriz random a generar.
+    entradas_lim_inf : es el límite inferior del tamaño de la matriz, buscamos matrices de nxn.
+    entradas_lim_sup : es el límite superior del tamaño de la matriz, buscamos matrices de nxn.
+        
+    Salidas
+    -------
+    resultados : Un dataframe con el nombre de resultados, una vez evaluado el algoritmo con le número de corridas ingresadas.
+    """
+    dimension=[]
+    solucion_bloques=[]
+    tiempo_bloques=[]
+    error_absoluto=[]
+    
+    for i in range(0,num_corridas):
+        
+        #modulo que crea la matriz random
+        A,n=crea_matrices.crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        X=np.random.randint(entradas_lim_inf,entradas_lim_sup,size=(n))
+        B=A@X   
+        dimension.append(n)
+        
+        tiempo_total,X_algoritmo=resuelve_bloques(A,B)
+        tiempo_bloques.append(tiempo_total)
+        
+        error_abs=np.mean(np.fabs(X_algoritmo-X))
+        error_absoluto.append(error_abs)
+        
+        if(np.allclose(A@X_algoritmo,B)==True):
+            status='Correcto'
+            solucion_bloques.append(status)
+        else:
+            pprint.pprint('Incorrecto para A igual a:')
+            pprint.pprint(A)
+            status='Incorrecto'
+            solucion_bloques.append(status)
+
+        
+    data={'dimension':dimension, 'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
+    resultados=pd.DataFrame(data)
+    return resultados
+
