@@ -197,9 +197,9 @@ def revision_PLU(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,ent
          |     2    |      34     |  48.884815  | 0.029457   | Correcto   |
     '''
     dimension_A=[]
+    condicion_A=[]
     estado_plu=[]
     tiempo_plu=[]
-    condicion_A=[]
     #tipo_matriz=[]
     for i in range(0,num_corridas):
         
@@ -252,7 +252,7 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         - entradas_lim_sup (integer): número entero que corresponde al número más grande que puede tener
         la matriz como entrada
     * Salidas:
-        - resultados_x (data frame): data frame con 4 columnas: dimension_A, tiempo_x, estado_x y error_x
+        - resultados_x (data frame): data frame con 4 columnas: dimension_A, condicion_A, tiempo_x, estado_x y error_x
     ==========
     Ejemplo:
         >> num_corridas = 3
@@ -262,13 +262,14 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         >> entradas_lim_sup = 99 
         >> revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         > resultados_x
-        >|          | dimension_A |  tiempo_x | estado_x |    error_x   |
-         |:--------:|:-----------:|:---------:|----------|--------------|
-         |     0    |      13     |  0.012420 | Correcto | 1.192852e-15 |
-         |     1    |      32     |  0.026210 | Correcto | 2.095148e-14 |
-         |     2    |      11     |  0.002335 | Correcto | 6.143316e-15 |
+        >|          | dimension_A | condicion_A |  tiempo_x | estado_x |    error_x   |
+         |:--------:|:-----------:|:-----------:|:---------:|----------|--------------|
+         |     0    |      72     |  208.211964 |  0.212372 | Correcto | 1.579088e-14 |
+         |     1    |      56     | 1247.565615 |  0.102223 | Correcto | 2.442450e-13 |
+         |     2    |      32     | 2713.173540 |  0.025651 | Correcto | 5.905139e-13 |
     '''
     dimension_A=[]
+    condicion_A=[]
     estado_x=[]
     tiempo_x=[]
     error_x=[]
@@ -277,6 +278,10 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         #modulo que crea matrices de forma aleatoria
         A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         dimension_A.append(n)
+        
+        #modulo que calcula la condicion de A
+        cond=condicion(A)
+        condicion_A.append(cond)
 
         x_real = np.round(np.random.normal(dim_limite_inf, dim_limite_sup, n),2)
         
@@ -288,7 +293,7 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         error_rel = np.mean(np.abs(x_real-x_est)/np.abs(x_real))
         error_x.append(error_rel)
          
-    data={'dimension_A':dimension_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
+    data={'dimension_A':dimension_A,'condicion_A':condicion_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_x':error_x}       
     resultados_x=pd.DataFrame(data)
     return resultados_x
 
@@ -306,7 +311,8 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
     -------
     resultados : Un dataframe con el nombre de resultados, una vez evaluado el algoritmo con le número de corridas ingresadas.
     """
-    dimension=[]
+    dimension_A=[]
+    condicion_A=[]
     solucion_bloques=[]
     tiempo_bloques=[]
     error_absoluto=[]
@@ -317,7 +323,11 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
         A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         X=np.random.randint(entradas_lim_inf,entradas_lim_sup,size=(n))
         B=A@X   
-        dimension.append(n)
+        dimension_A.append(n)
+        
+        #modulo que calcula la condicion de A
+        cond=condicion(A)
+        condicion_A.append(cond)
         
         tiempo_total,X_algoritmo=resuelve_bloques(A,B)
         tiempo_bloques.append(tiempo_total)
@@ -335,9 +345,9 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
             solucion_bloques.append(status)
 
         
-    data={'dimension':dimension, 'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
-    resultados=pd.DataFrame(data)
-    return resultados
+    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
+    resultados_bloques=pd.DataFrame(data)
+    return resultados_bloques
 
 def revision_bloques_v2(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     """
@@ -353,7 +363,8 @@ def revision_bloques_v2(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_
     -------
     resultados : Un dataframe con el nombre de resultados, una vez evaluado el algoritmo con le número de corridas ingresadas.
     """
-    dimension=[]
+    dimension_A=[]
+    condicion_A=[]
     solucion_bloques=[]
     tiempo_bloques=[]
     error_absoluto=[]
@@ -361,10 +372,14 @@ def revision_bloques_v2(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_
     for i in range(0,num_corridas):
         
         #modulo que crea la matriz random
-        A,n=crea_matrices.crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
+        A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         X=np.random.randint(entradas_lim_inf,entradas_lim_sup,size=(n))
         B=A@X   
-        dimension.append(n)
+        dimension_A.append(n)
+        
+        #modulo que calcula la condicion de A
+        cond=condicion(A)
+        condicion_A.append(cond)
         
         tiempo_total,X_algoritmo=resuelve_bloques(A,B)
         tiempo_bloques.append(tiempo_total)
@@ -382,7 +397,7 @@ def revision_bloques_v2(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_
             solucion_bloques.append(status)
 
         
-    data={'dimension':dimension, 'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
-    resultados=pd.DataFrame(data)
-    return resultados
+    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_abs':error_absoluto}       
+    resultados_bloques_v2=pd.DataFrame(data)
+    return resultados_bloques_v2
 
