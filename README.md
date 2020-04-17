@@ -28,7 +28,7 @@ Todas las funciones se pusieron en la carpeta de [src](https://github.com/mno-20
 
 
 
-Para acceder al notebook que muestra los resultados finales y conclusiones, puedes ingresar en la siguiente liga dentro de este repositorio, así como una muestra de la revisión del mismo.
+Para acceder al notebook que muestra los resultados finales y conclusiones, puedes ingresar en la siguiente [liga](results/reporte.ipynb) dentro de este repositorio, así como una muestra de la revisión del mismo.
 
 
 ## Revisión del código en Python
