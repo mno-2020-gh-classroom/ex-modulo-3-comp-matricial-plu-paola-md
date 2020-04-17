@@ -28,19 +28,7 @@ Todas las funciones se pusieron en la carpeta de [src](https://github.com/mno-20
 
 
 
-Para acceder al notebook que muestra los resultados finales y conclusiones, puedes ingresar en la siguiente [liga](results/reporte.ipynb) dentro de este repositorio, así como una muestra de la revisión del mismo.
-
-
-## Revisión del código en Python
-
-Las pruebas que se realizaron se dividen principalmente en tres:
-
-- La primera prueba consiste en generar matrices de distinta dimensión de forma aleatoria y en comprobar que el algoritmo factorizacion_PLU realiza de manera correcta la factorización verificando que PA=LU. Además, guarda un registro en un data frame de la dimensión de la matriz A, la condición de la matriz A, el tiempo que tarda en realizarse la factorizacion PLU y el estado correcto o incorrecto de la comprobación. Esta prueba corresponde a la función revision_PLU que se encuentra en el script revisión_modular.py [Revisión_PLU](notebooks/Revision/revision_modular.py).
-
-- La segunda prueba consiste en generar matrices de distinta dimensión de forma aleatoria nuevamente, realizar la factorización PLU y verificar que la solución estimada del sistema de ecuaciones "x estimada" sea la correcta al comparar con la "x real". Además, guarda un registro en un data frame de la dimensión de la matriz A, el tiempo que tarda en realizarse la comprobación de x, el el estado correcto o incorrecto de la comprobación y el error realativo entre la "x estimada" y la "x real". Esta prueba corresponde a la función revision_PLU que se encuentra en el script revisión_modular.py [Revisión_X](notebooks/Revision/revision_modular.py).
-
-- La tercera prueba consiste en la verificación por bloques de... ****ACABAR ESTA PARTE***
-
+Para acceder al notebook que muestra los **resultados finales y conclusiones**, puedes ingresar en la siguiente [liga](results/reporte.ipynb) dentro de este repositorio, así como una muestra de la revisión del mismo.
 
 ------------------------------------------------------------------------------------------------------------------------------
 
