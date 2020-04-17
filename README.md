@@ -14,32 +14,22 @@
 
 El objetivo de este programa es resolver la factorización PLU por bloques para matrices grandes.
 
-## Factorización PLU simple
+## Estructura del repositorio:
 
-La factorización $LU$ de una matriz resume el proceso de [eliminación Gaussiana](https://en.wikipedia.org/wiki/Gaussian_elimination) aplicada a una matriz, lo cual es conveniente en términos del número total de operaciones de punto flotante cuando se desea calcular la inversa de una matriz o cuando se resolverá una serie de sistema de ecuaciones con una misma matriz de coeficientes. 
+El repositorio está organizado de la siguiente forma:
+* carpetas del equipo de programación:
+  * [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion)
+  * [funciones](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms)
+* carpetas del equipo de revisión:
+  * [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision)
+  * [funciones](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms)
+ 
+Todas las funciones se pusieron en la carpeta de src, de modo que se puedan importar mediante comandos de la forma:
 
-Frecuentemente no es posible escalonar una matriz solamente con operaciones de eliminación, por lo se requiere realizar un intercambio de renglones; para este tipo de matrices no existe la factorización $LU$ y lo que se aplica es la factorización $PA = LU$, donde la matriz P es una matriz de permutación, la cual se obtiene a partir de la matriz identidad al realizar el mismo intercambio de renglones. Ver [Factorización PLU](http://cb.mty.itesm.mx/ma1010/materiales/ma1010-26.pdf).
 
-**Teorema**
 
-Si $A \in  \mathbb{R}^{n \times n}$ es no singular, existen matrices $P, L, U$ de permutación, triangular inferior con $1$'s en la diagonal y triangular superior invertible respectivamente tales que $PA = LU$.
+Para acceder al notebook que muestra los resultados finales y conclusiones, puedes ingresar en la siguiente liga dentro de este repositorio, así como una muestra de la revisión del mismo.
 
-## Factorización PLU por bloques
-
-Se puede demostrar que si A es no singular, L y U existen y son únicas.
-
-En la sección de la factorización PLU se aplicaron recursivamente los pasos de la eliminación Gaussiana para que los elementos de las matrices L y U se calculen de forma iterativa utilizando un vector pivote.
-
-Para aprovechar de una forma más eficiente el uso de la memoria y del caché al momento de realizar el cálculo de la factorización LU, se puede determinar la partición de la matriz A, tomando submatrices de tamaño $k \times k$ 
-
-## Programación del código en Python
-
-Antes que nada, es necesario instalar e importar los paquetes que se encuentran en el archivo **Requirements.txt**.
-
-- La programación consistió básicamente en crear x funciones que hicieran a grandes razgos, lo siguiente:
-****RELLENAR ESTA PARTE****
-
-* El script que corresponde a la programción se llama TodoJunto.py y se encuentra en [Factorización_PLU](notebooks/Programacion/FactorizacionPLU.ipynb).****VER CUAL SERA EL NOMBRE FINAL DEL SCRIPT Y DONDE VA A VIVIR***
 
 ## Revisión del código en Python
 
@@ -50,18 +40,6 @@ Las pruebas que se realizaron se dividen principalmente en tres:
 - La segunda prueba consiste en generar matrices de distinta dimensión de forma aleatoria nuevamente, realizar la factorización PLU y verificar que la solución estimada del sistema de ecuaciones "x estimada" sea la correcta al comparar con la "x real". Además, guarda un registro en un data frame de la dimensión de la matriz A, el tiempo que tarda en realizarse la comprobación de x, el el estado correcto o incorrecto de la comprobación y el error realativo entre la "x estimada" y la "x real". Esta prueba corresponde a la función revision_PLU que se encuentra en el script revisión_modular.py [Revisión_X](notebooks/Revision/revision_modular.py).
 
 - La tercera prueba consiste en la verificación por bloques de... ****ACABAR ESTA PARTE***
-
-## Reporte de resultados
-
-Los principales resultados que se observaron al realizar la factorzación PLU son:
-
-Los parámetros que se evaluaron son: dimensión de la matriz A, datos de entrada de A, datos de entrada de b contra el tiempo, la memoria etc.
-
-#Figura 1. Comparación de la dimensión de la matriz contra el tiempo promedio de ejecución
-
-#Figura 2. Comparación de la dimensión de la matriz contra el uso de memoria
-
-#Figura 3. Comparación de la dimensión de la matriz contra el error relativo
 
 
 ------------------------------------------------------------------------------------------------------------------------------
