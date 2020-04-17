@@ -24,7 +24,7 @@ El repositorio está organizado de la siguiente forma:
   * [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision)
   * [funciones](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms)
  
-Todas las funciones se pusieron en la carpeta de src, de modo que se puedan importar mediante comandos de la forma:
+Todas las funciones se pusieron en la carpeta de [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src), de modo que se puedan importar mediante comandos de la forma:
 
 
 
