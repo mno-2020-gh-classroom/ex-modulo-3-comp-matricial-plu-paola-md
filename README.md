@@ -17,18 +17,24 @@ El objetivo de este programa es resolver la factorización PLU por bloques para 
 ## Estructura del repositorio:
 
 El repositorio está organizado de la siguiente forma:
-* carpetas del equipo de programación:
-  * [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion)
-  * [funciones](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms)
-* carpetas del equipo de revisión:
-  * [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision)
-  * [funciones](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms)
- 
-Todas las funciones se pusieron en la carpeta de [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src), de modo que se puedan importar mediante comandos de la forma:
 
+- Carpeta [docker](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/docker): 
+- Carpeta [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/img): Contiene las imágenes utilizadas en el reporte final.
+- Carpeta [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks): Contiene dos carpetas con los notebooks y scripts del equipo de Programación y Revisión.   
+     1. [Programación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
+           a)[notebooks]()
+           b)
+           c)
+           d)   
+     2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision):Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
+           a)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
+           b)[revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/revision_modular.py):Script final utilizado por el equipo de Revisión.
+           c)
+- Carpeta [references](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/references): Contiene información sobre las referencias utilizadas para desarrollar el proyecto.
+- Carpeta [results](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results): Contiene el notebook [reporte.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results/reporte.ipynb) que trae el reporte final del proyecto. 
+- Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene las funciones  de modo que se puedan importar mediante comandos de la forma:
 
-
-Para acceder al notebook que muestra los **resultados finales y conclusiones**, puedes ingresar en la siguiente [liga](results/reporte.ipynb) dentro de este repositorio, así como una muestra de la revisión del mismo.
+## Instrucciones 
 
 ------------------------------------------------------------------------------------------------------------------------------
 
