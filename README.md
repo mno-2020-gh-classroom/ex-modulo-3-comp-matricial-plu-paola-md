@@ -18,27 +18,30 @@ El objetivo de este programa es resolver la factorización PLU por bloques para 
 
 El repositorio está organizado de la siguiente forma:
 
-- Carpeta [docker](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/docker): 
+- Carpeta [docker](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/docker): Contiene la información pertienete para poder correr los scripts y notebooks en un contenedor de docker.
 - Carpeta [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/img): Contiene las imágenes utilizadas en el reporte final.
 - Carpeta [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks): Contiene dos carpetas con los notebooks y scripts del equipo de Programación y Revisión.   
-     1. [Programación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-           a)[notebooks]()
-           b)
-           c)
-           d)   
+     1. [Programación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion): Dentro de esta carpeta se encuentran la siguiente carpeta:
+           i)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Programación.  
+           **Nota** Todos los scripts necesarios del equipo de Programación se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src) para que pudieran importarse las funciones mediante comandos.
      2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision):Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-           a)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
-           b)[revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/revision_modular.py):Script final utilizado por el equipo de Revisión.
-           c)
+           i)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
+           ii)[revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/revision_modular.py):Script final utilizado por el equipo de Revisión.
+           iii)[Procedimiento_revision.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Procedimiento_revision.ipynb]): Notebook que contiene todo el proceso que siguió el equipo de Revisión y pruebas de los algoritmos del scritp revision_modular.py 
 - Carpeta [references](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/references): Contiene información sobre las referencias utilizadas para desarrollar el proyecto.
 - Carpeta [results](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results): Contiene el notebook [reporte.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results/reporte.ipynb) que trae el reporte final del proyecto. 
-- Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene las funciones  de modo que se puedan importar mediante comandos de la forma:
+- Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene los scripts del equipo de Revisión en formato de clases.
+     1. [algorithms](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
+          i)[TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
+          ii)[](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/):
+          iii)[](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/): 
+- Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts para las pruebas unitarias.
 
 ## Instrucciones 
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-# Actividades y roles en el examen:
+### Actividades y roles en el examen:
 El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
 
 
@@ -60,7 +63,7 @@ Otras referencias útiles:
 
 **Cada equipo decide qué personas están en qué rol.**
 
-## Objetivos:
+#### Objetivos:
 
 * Programar el método de eliminación por bloques que se encuentra en la sección **Métodos o algoritmos numéricos por bloques para SEL** en la nota [3.3.Solucion_de_SEL_y_FM](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.Solucion_de_SEL_y_FM.ipynb). Para resolver este método, el equipo también programará [3.3.a.Factorizacion_LU](https://github.com/ITAM-DS/analisis-numerico-computo-cientifico/blob/master/temas/III.computo_matricial/3.3.a.Factorizacion_LU.ipynb) para resolver los sistemas de ecuaciones que surjan en el método de eliminación por bloques. Utilizar matrices pseudoaleatorias de tamaño mediano: aprox de dimensiones de $10^4 \times 10^4$.
 
@@ -70,15 +73,15 @@ Otras referencias útiles:
 
 **Nota para los equipos que programan una factorización matricial distinta a la SVD:** una vez que programan su factorización matricial tienen que utilizar métodos de sustitución hacia delante y hacia atrás para resolver el SEL asociado. Utilicen [solve triangular](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_triangular.html) de `scipy` o [backsolve/forwardsolve](https://stat.ethz.ch/R-manual/R-devel/library/base/html/backsolve.html) de `R` para esto.
 
-## Fecha de entrega y aspectos a calificar
+#### Fecha de entrega y aspectos a calificar
 
 * 19 de abril 11:59 pm
 
 * Cada equipo y persona obtendrán una calificación. Para el equipo consideraré que los métodos obtengan correctamente los resultados y vale 70%. Para la calificación individual calificaré de acuerdo a sus commits, *issues*, *milestones* o tarjetas creadas y vale 30%.
 
 
-## Lenguaje a utilizar: Python
+#### Lenguaje a utilizar: Python
 
 
-## % de la calificación final: 20 puntos
+#### % de la calificación final: 20 puntos
 
