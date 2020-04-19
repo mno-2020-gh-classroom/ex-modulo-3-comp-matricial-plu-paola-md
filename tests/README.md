@@ -12,7 +12,7 @@ El proceso de unit testing, para poder ejecutar los test de forma interactiva y 
 
 # Instrucciones para ejecución en `Binder`
 
-En su versión tradicional binder requiere que la ejecución sea realizada enlazando un repositorio público. Razón por la cual se generó (este repositorio) [https://github.com/C1587S/MNO-interactivePLU] con los modulos y funcones principales del algoritmo PLU generado. 
+En su versión tradicional binder requiere que la ejecución sea realizada enlazando un repositorio público. Razón por la cual se generó [este repositorio](https://github.com/C1587S/MNO-interactivePLU) con los modulos y funcones principales del algoritmo PLU generado. 
 
 Las instrucciones para ejecutar los test unitarios se detallan a continuación:
 
