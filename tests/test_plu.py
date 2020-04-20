@@ -44,7 +44,7 @@ def test_10Matrices():
     eps = 1.0E-8  # para definir la precisión a 8 dígitos
     n = 10
     dim_lim_inf = 2
-    dim_lim_sup = 10**2
+    dim_lim_sup = 10**3
     ents_lim_sup = 10000
     # crea matrices aleatorias
     for i in range(1, n + 1):
@@ -67,11 +67,11 @@ def test_comparaSciPyPLU_10Matrices():
     sea mayor a "eps".
     '''
     np.random.seed(3338014)  # semilla para replicabilidad de las pruebas
-    print("* Evalúa 10 veces el algoritmo de factorización PLU para matrices hasta de 10^2x10^2")
+    print("* Evalúa 10 veces el algoritmo de factorización PLU para matrices hasta de 10^3x10^3")
     eps = 1.0E-8  # para definir la precisión a 8 dígitos
     n = 10
     dim_lim_inf = 3
-    dim_lim_sup = 10**2
+    dim_lim_sup = 10**3
     ents_lim_sup = 10000
     # crea matrices aleatorias
     for i in range(1, n + 1):
@@ -107,7 +107,7 @@ def test_Bloqs1000matricesDim2():
     np.random.seed(3338014)  # semilla para replicabilidad de las pruebas
     print("* Evalúa 1000 veces el algoritmo de factorización PLU por bloques")
     eps = 1.0E-8  # para definir la precisión a 8 dígitos
-    n_veces = 100
+    n_veces = 1000
     dim_lim_inf = 2
     dim_lim_sup = 10**2
     ents_lim_sup = 10000
