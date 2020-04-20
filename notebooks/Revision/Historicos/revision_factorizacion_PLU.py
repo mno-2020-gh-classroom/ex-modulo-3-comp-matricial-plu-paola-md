@@ -83,7 +83,7 @@ def revision_PLU(nombre_archivo,numero_corridas,dimension_limite_inferior,dimens
 
 #En esta parte ya solucioné lo del cálculo de la inversa y acorté el código para que no haga la comprobación de scipy y que eso se haga en otro lado. Este código crea la matriz, calcula PLU, verifica la singularidad y calcula los tiempos.
 
-def revision_PLU(nombre_archivo,numero_corridas,dimension_limite_inferior,dimension_limite_superior,entradas_limite_inferior,entradas_limite_superior):
+#def revision_PLU(nombre_archivo,numero_corridas,dimension_limite_inferior,dimension_limite_superior,entradas_limite_inferior,entradas_limite_superior):
     f= open(nombre_archivo,"w")
     dimension=[]
     estado_plu=[]
