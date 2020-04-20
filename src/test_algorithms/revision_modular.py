@@ -5,8 +5,8 @@ import numpy as np
 import pprint
 import pandas as pd
 import time
-#from src.algorithms import TodoJunto
-import TodoJunto
+from src.algorithms import TodoJunto
+
 
 def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     '''
