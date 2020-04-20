@@ -1,6 +1,6 @@
 # Factorización PLU: Examen de Cómputo Matricial
 
-**Integrantes del equipo**
+## Integrantes del equipo y roles de trabajo:
 
 | # | Alumno    |        Rol         |      User github       |
 |---|-----------|--------------------|------------------------|
@@ -44,7 +44,7 @@ El repositorio está organizado de la siguiente forma:
           * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py): Script que **COMPLETAR**
           
 
-## Instrucciones 
+## Instrucciones del examen: 
 
 ------------------------------------------------------------------------------------------------------------------------------
 
