@@ -1,8 +1,12 @@
+import sys
+sys.path.append('./../../')
+
 import numpy as np
 import pprint
 import pandas as pd
 import time
-import TodoJunto
+from src.algorithms import TodoJunto
+
 
 def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup):
     '''
@@ -236,7 +240,7 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
     x_est sea la correcta al compararla con la x_real y generar un data frame con información sobre la 
     dimensión y condición de la matriz A, el tiempo de ejecución del algoritmo solve que resuelve el 
     sistema, el estado de la verificación de la solución (Ej: Correcto o Incorrecto), el error absoluto 
-    entre x_est y x_real y el tipo de matriz A.
+    entre x_est y x_real, el error relativo, el residual relativo y el tipo de matriz A.
     
     Para cumplir con el objetivo principal, la función llama a otras funciones auxiliares: 
     crea_matrices,condicion y  solve_A_b, que se describen arriba.  Se le debe especificar el número de 
@@ -254,8 +258,8 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         - entradas_lim_sup (integer): número entero que corresponde al número más grande que puede tener
         la matriz como entrada
     * Salidas:
-        - resultados_x (data frame): data frame con 6 columnas: dimension_A, condicion_A, tiempo_x, 
-        estado_x, error_absoluto y tipo_matriz
+        - resultados_x (data frame): data frame con 8 columnas: dimension_A, condicion_A, tiempo_x, 
+        estado_x, error_absoluto, error_relativo, residual_relativo y tipo_matriz
     ==========
     Ejemplo:
         >> num_corridas = 3
@@ -265,18 +269,28 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
         >> entradas_lim_sup = 99 
         >> revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         > resultados_x
-        >|          | dimension_A | condicion_A |  tiempo_x | estado_x | error_absoluto | tipo_matriz
-         |:--------:|:-----------:|:-----------:|:---------:|----------|----------------|--------------
-         |     0    |      72     |  208.211964 |  0.212372 | Correcto |  1.579088e-14  | no singular
-         |     1    |      56     | 1247.565615 |  0.102223 | Correcto |  2.442450e-13  | no singular 
-         |     2    |      32     | 2713.173540 |  0.025651 | Correcto |  5.905139e-13  | no singular
+        >|          | dimension_A | condicion_A |  tiempo_x | estado_x | error_absoluto | error_relativo
+         |:--------:|:-----------:|:-----------:|:---------:|----------|----------------|-------------
+         |     0    |      72     |  208.211964 |  0.212372 | Correcto |  1.579088e-14  | 2.927093e-15
+         |     1    |      56     | 1247.565615 |  0.102223 | Correcto |  2.442450e-13  | 8.780569e-16 
+         |     2    |      32     | 2713.173540 |  0.025651 | Correcto |  5.905139e-13  | 3.865791e-15
+         
+         |          | residual_relativo | tipo_matriz |  
+         |:--------:|:-----------------:|:-----------:|
+         |     0    |  2.814545e-16     | no singular |  
+         |     1    |  1.550506e-16     | no singular | 
+         |     2    |  4.423745e-16     | no singular |  
     '''
+
     dimension_A=[]
     condicion_A=[]
     estado_x=[]
     tiempo_x=[]
     error_absoluto=[]
     tipo_matriz=[]
+    error_relativo=[]
+    residual_relativo=[]
+    
     for i in range(0,num_corridas):
         
         #modulo que crea matrices de forma aleatoria
@@ -300,15 +314,21 @@ def revision_x(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entra
             estado_x.append(status_x)
             error_abs = np.mean(np.abs(x_real-x_est))
             error_absoluto.append(error_abs)
+            err_rel = np.linalg.norm(x_est-x_real)/np.linalg.norm(x_real)
+            error_relativo.append(err_rel)
+            r_rel = np.linalg.norm(A@x_est-b)/np.linalg.norm(b)
+            residual_relativo.append(r_rel)
             tipo_matriz.append('no singular')
         except:
             tipo_matriz.append('singular')
             estado_x.append('')
             error_absoluto.append('')
             tiempo_x.append('')
+            error_relativo.append('')
+            residual_relativo.append('')
             
          
-    data={'dimension_A':dimension_A,'condicion_A':condicion_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_absoluto':error_absoluto,'tipo_matriz':tipo_matriz}       
+    data={'dimension_A':dimension_A,'condicion_A':condicion_A,'tiempo_x':tiempo_x,'estado_x':estado_x,'error_absoluto':error_absoluto,'error_relativo':error_relativo, 'residual_relativo':residual_relativo,'tipo_matriz':tipo_matriz}       
     resultados_x=pd.DataFrame(data)
     return resultados_x
 
@@ -318,7 +338,7 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
     solucion_bloques, del algoritmo por bloques, sea la correcta al compararla con la solucion_real y 
     generar un data frame con información sobre la dimensión y condición de la matriz A, el tiempo de 
     ejecución del algoritmo solve_blocks que resuelve el sistema, el estado de la verificación de la 
-    solución (Ej: Correcto o Incorrecto), el error absoluto entre solucion_bloques y solucion_real y el tipo de matriz. 
+    solución (Ej: Correcto o Incorrecto), el error absoluto entre solucion_bloques y solucion_real, el error relativo, el residual relativo y el tipo de matriz. 
     
     Para cumplir con el objetivo principal, la función llama a otras funciones auxiliares: crea_matrices, 
     condicion y resuelve_bloques, que se describen arriba.  Se le debe especificar el número de veces que 
@@ -336,8 +356,8 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
         - entradas_lim_sup (integer): número entero que corresponde al número más grande que puede tener
         la matriz como entrada
     * Salidas:
-        - resultados_bloques (data frame): data frame con 6 columnas: dimension_A, condicion_A, 
-        tiempo_bloques, solucion_bloques, error_absoluto y tipo_matriz
+        - resultados_bloques (data frame): data frame con 8 columnas: dimension_A, condicion_A, 
+        tiempo_bloques, solucion_bloques, error_absoluto, error_relativo, residual_relativo y tipo_matriz
     ==========
     Ejemplo:
         >> num_corridas = 3
@@ -347,11 +367,17 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
         >> entradas_lim_sup = 99 
         >> revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         > resultados_bloques
-        >|          | dimension_A | condicion_A | tiempo_bloques | resultados_bloques |error_absoluto|tipo_matriz
+        >|          | dimension_A | condicion_A | tiempo_bloques | resultados_bloques |error_absoluto|error_relativo
          |:--------:|:-----------:|:-----------:|:--------------:|--------------------|--------------|-----------
-         |     0    |      55     |  184.490589 |    0.088470    |       Correcto     | 4.676325e-09 |no singular
-         |     1    |      18     |  62.869150  |    0.007024    |       Correcto     | 9.742454e-13 |no singular
-         |     2    |       8     |  26.888839  |    0.002258    |       Correcto     | 4.218847e-14 |no singular
+         |     0    |      55     |  184.490589 |    0.088470    |       Correcto     | 4.676325e-09 |4.040484e-14
+         |     1    |      18     |  62.869150  |    0.007024    |       Correcto     | 9.742454e-13 |2.093541e-15
+         |     2    |       8     |  26.888839  |    0.002258    |       Correcto     | 4.218847e-14 |1.668471e-15
+         
+         |          | residual_relativo | tipo_matriz | 
+         |:--------:|:-----------------:|:-----------:|
+         |     0    |   3.646588e-16    | no singular |   
+         |     1    |   4.300725e-16    | no singular |    
+         |     2    |   4.773532e-16    | no singular |   
     '''
     dimension_A=[]
     condicion_A=[]
@@ -359,6 +385,8 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
     solucion_bloques=[]
     error_absoluto=[]
     tipo_matriz=[]
+    error_relativo=[]
+    residual_relativo=[]
     
     for i in range(0,num_corridas):
         
@@ -377,6 +405,10 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
             tiempo_bloques.append(tiempo_total)
             error_abs=np.mean(np.fabs(X_algoritmo-X))
             error_absoluto.append(error_abs)
+            err_rel = np.linalg.norm(X_algoritmo-X)/np.linalg.norm(X)
+            error_relativo.append(err_rel)
+            r_rel = np.linalg.norm(A@X_algoritmo-B)/np.linalg.norm(B)
+            residual_relativo.append(r_rel)
             if(np.allclose(X,X_algoritmo)==True):
                 status='Correcto'
                 solucion_bloques.append(status)
@@ -391,8 +423,10 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
             solucion_bloques.append('')
             error_absoluto.append('')
             tiempo_bloques.append('')
+            error_relativo.append('')
+            residual_relativo.append('')
 
         
-    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_absoluto':error_absoluto,'tipo_matriz':tipo_matriz}       
+    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_absoluto':error_absoluto,'error_relativo': error_relativo,'residual_relativo':residual_relativo,'tipo_matriz':tipo_matriz}       
     resultados_bloques=pd.DataFrame(data)
     return resultados_bloques
