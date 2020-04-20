@@ -5,6 +5,7 @@ import numpy as np
 import pprint
 import pandas as pd
 import time
+from math import ceil
 from src.algorithms import TodoJunto
 
 
@@ -42,6 +43,27 @@ def crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_su
     n=np.random.randint(dim_limite_inf, dim_limite_sup)
     A=np.array(np.random.randint(entradas_lim_inf,entradas_lim_sup, size=(n, n)))
     return A,n
+
+def num_bloques(A):
+    '''
+    Esta función devuelve el numero de bloques en el que es dividida la matriz A generada aleatoriamente.
+    ==========
+    * Entradas:
+        - A (matriz): matriz cuadrada de dimensión nxn
+    * Salidas:
+        - n (escalar): numero de bloques en el que se divide la matriz para ejecutar el algoritmo de elimiación por bloques
+    ==========
+    Ejemplo:
+        >>A = np.array([[-4,-65],[-19,-20]])
+        >>num_bloques(A)
+        >1   
+    '''
+    A_column = A.shape[1]
+    if A_column % 2 == 0 :
+        x = int(A_column/2)
+    else: 
+        x = int(ceil(A_column/2))
+    return x
 
 def factoriza_plu(A):
     '''
@@ -357,7 +379,7 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
         la matriz como entrada
     * Salidas:
         - resultados_bloques (data frame): data frame con 8 columnas: dimension_A, condicion_A, 
-        tiempo_bloques, solucion_bloques, error_absoluto, error_relativo, residual_relativo y tipo_matriz
+        tiempo_bloques, solucion_bloques, error_absoluto, error_relativo, residual_relativo,tipo_matriz y tamaño del bloque
     ==========
     Ejemplo:
         >> num_corridas = 3
@@ -369,15 +391,15 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
         > resultados_bloques
         >|          | dimension_A | condicion_A | tiempo_bloques | resultados_bloques |error_absoluto|error_relativo
          |:--------:|:-----------:|:-----------:|:--------------:|--------------------|--------------|-----------
-         |     0    |      55     |  184.490589 |    0.088470    |       Correcto     | 4.676325e-09 |4.040484e-14
-         |     1    |      18     |  62.869150  |    0.007024    |       Correcto     | 9.742454e-13 |2.093541e-15
-         |     2    |       8     |  26.888839  |    0.002258    |       Correcto     | 4.218847e-14 |1.668471e-15
+         |     0    |      11     |  64.161408  |    0.010515    |       Correcto     | 1.857908e-13 |5.423623e-15
+         |     1    |      11     |  22.153733  |    0.009928    |       Correcto     | 1.719836e-13 |3.796813e-15
+         |     2    |      18     |  27.140287  |    0.175243    |       Correcto     | 6.720550e-14 |1.347242e-15
          
-         |          | residual_relativo | tipo_matriz | 
-         |:--------:|:-----------------:|:-----------:|
-         |     0    |   3.646588e-16    | no singular |   
-         |     1    |   4.300725e-16    | no singular |    
-         |     2    |   4.773532e-16    | no singular |   
+         |          | residual_relativo | tipo_matriz | tamaño_bloque|  
+         |:--------:|:-----------------:|:-----------:|:-----------: |
+         |     0    |   5.620666e-16    | no singular |      6       |
+         |     1    |   1.963374e-15    | no singular |      6       |
+         |     2    |   8.925290e-16    | no singular |      9       |
     '''
     dimension_A=[]
     condicion_A=[]
@@ -387,13 +409,16 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
     tipo_matriz=[]
     error_relativo=[]
     residual_relativo=[]
+    n_bloque=[]
     
     for i in range(0,num_corridas):
         
         #modulo que crea la matriz random
         A,n=crea_matrices(dim_limite_inf,dim_limite_sup,entradas_lim_inf,entradas_lim_sup)
         X=np.random.randint(entradas_lim_inf,entradas_lim_sup,size=(n))
-        B=A@X   
+        B=A@X
+        n_block=num_bloques(A)
+        n_bloque.append(n_block)
         dimension_A.append(n)
         
         #modulo que calcula la condicion de A
@@ -427,6 +452,6 @@ def revision_bloques(num_corridas,dim_limite_inf,dim_limite_sup,entradas_lim_inf
             residual_relativo.append('')
 
         
-    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_absoluto':error_absoluto,'error_relativo': error_relativo,'residual_relativo':residual_relativo,'tipo_matriz':tipo_matriz}       
+    data={'dimension_A':dimension_A, 'condicion_A':condicion_A,'tiempo_bloques':tiempo_bloques,'solucion_bloques':solucion_bloques,'error_absoluto':error_absoluto,'error_relativo': error_relativo,'residual_relativo':residual_relativo,'tipo_matriz':tipo_matriz,'dimension_bloque':n_bloque}       
     resultados_bloques=pd.DataFrame(data)
     return resultados_bloques
