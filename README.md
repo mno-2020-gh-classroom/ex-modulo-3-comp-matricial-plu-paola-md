@@ -16,7 +16,7 @@ El objetivo de este programa es resolver la factorización PLU por bloques para 
 
 ## Estructura del repositorio:
 
-El repositorio está organizado de la siguiente forma:
+La estructura del repositorio está basado en [este](https://drivendata.github.io/cookiecutter-data-science/) template y está organizado de la siguiente forma:
 
 - Carpeta [docker](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/docker): Contiene la información pertienete para poder correr los scripts y notebooks en un contenedor de docker.
 - Carpeta [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/img): Contiene las imágenes utilizadas en el reporte final.
@@ -32,10 +32,10 @@ El repositorio está organizado de la siguiente forma:
 - Carpeta [results](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results): Contiene el notebook [reporte.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results/reporte.ipynb) que trae el reporte final del proyecto. 
 - Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene los scripts del equipo de Revisión en formato de clases.
      1. [algorithms](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-          * [TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
-          * [EliminacionPorBloques.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/EliminacionPorBloques.py):**COMPLETAR**
-          * [factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/factorizacion_PLU.py):**COMPLETAR**
-          * [FactorizacionPLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/FactorizacionPLU.py):**COMPLETAR**
+          * [TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación. Une los métodos de la clase EliminaciónPorBloques y FactorizacionPLU.
+          * [EliminacionPorBloques.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/EliminacionPorBloques.py): Es la clase de Eliminación por bloques que llama al método de solve de la clase Factorización PLU.
+          * [factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/factorizacion_PLU.py): Contiene el algoritmo de factorización PLU y los métodos necesarios para poder resolver sistemoas de ecuaciones utilizando dicha factorización. 
+          * [FactorizacionPLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/FactorizacionPLU.py): Mismos métodos que factorizacionPLU pero están dentro de una clase para que se pueda instanciar FactorizacionPLU como objeto.
 - Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts siguientes para correr las pruebas unitarias:
      1. .
           * [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/img): Carpeta con la captura de pantalla del resultado de las pruebas unitarias.
