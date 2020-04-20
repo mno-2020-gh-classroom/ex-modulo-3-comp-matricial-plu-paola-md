@@ -41,9 +41,9 @@ La estructura del repositorio está basado en [este](https://drivendata.github.i
 - Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts siguientes para correr las pruebas unitarias:
      1. .
           * [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/img): Carpeta con la captura de pantalla del resultado de las pruebas unitarias.
-          * [plu_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/plu_functions.py): Script que **COMPLETAR**
-          * [revision_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/revision_functions.py): Script que **COMPLETAR**
-          * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py): Script que **COMPLETAR**
+          * [plu_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/plu_functions.py): Script que contiene las funciones disponibles en el modulo `TodoJunto.py` y se toman como input para los test unitarios.
+          * [revision_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/revision_functions.py): Script que contiene las funciones disponibles en el modulo `revision_modular.py` y se toman como input para los test unitarios.
+          * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py): Script que contiene los 6 test unitarios realizados y se ejecutan con la librería `pytest`. Utiliza como input las funciones disponibles en `plu_functions.py` y `revision_functions.py`.
           
 
 ## Instrucciones del examen: 
