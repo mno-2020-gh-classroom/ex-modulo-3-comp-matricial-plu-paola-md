@@ -6,7 +6,7 @@ Los archivos contenidos en esta carpeta permiten hacer unit testing de forma aut
 
   - `test_plu.py`
   - `revision_functions.py`
-  - `plu_functions.py.py`
+  - `plu_functions.py`
   
 El proceso de unit testing, para poder ejecutar los test de forma interactiva y en un entorno **aislado** se utilizó `binder` y la imagen de docker disponible en la [carpeta](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/docker) de este repositorio.  
 
