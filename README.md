@@ -25,10 +25,12 @@ La estructura del repositorio está basado en [este](https://drivendata.github.i
 - Carpeta [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks): Contiene dos carpetas con los notebooks y scripts del equipo de Programación y Revisión.   
      1. [Programación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion): Dentro de esta carpeta se encuentran la siguiente carpeta:
            * [Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Programación.  
+           
            **Nota:** Todos los scripts finales del equipo de Programación se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms) para que pudieran importarse las funciones mediante comandos.
-     2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision):Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
+     2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
            * [Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
-          **Nota:** Todos los scripts finales del equipo de Revisión se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms) para que pudieran importarse las funciones mediante comandos.
+           
+           **Nota:** Todos los scripts finales del equipo de Revisión se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms) para que pudieran importarse las funciones mediante comandos.
            * [Procedimiento_revision.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Procedimiento_revision.ipynb]): Notebook que contiene todo el proceso que siguió el equipo de Revisión y pruebas de los algoritmos del script `revision_modular.py`. 
            
 - Carpeta [references](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/references): Contiene información sobre las referencias utilizadas para desarrollar el proyecto.
@@ -42,8 +44,8 @@ La estructura del repositorio está basado en [este](https://drivendata.github.i
           * [factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/factorizacion_PLU.py): Contiene el algoritmo de factorización PLU y los métodos necesarios para poder resolver sistemas de ecuaciones utilizando dicha factorización. 
           * [FactorizacionPLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/FactorizacionPLU.py): Mismos métodos que `factorizacionPLU.py` pero están dentro de una clase para que se pueda instanciar `FactorizacionPLU` como objeto.
      2. [test_algoritms](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms)Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-          * [revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms/revision_modular.py):Script final utilizado por el equipo de Revisión.
-          * [revision_factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms/revision_factorizacion_PLU.py):Script inicial que ayudó a verificar si la factorización se estaba llevando a cabo correctamente al comparar con los resultados de la librería scipy.
+          * [revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms/revision_modular.py): Script final utilizado por el equipo de Revisión.
+          * [revision_factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/test_algorithms/revision_factorizacion_PLU.py): Script inicial que ayudó a verificar si la factorización se estaba llevando a cabo correctamente al comparar con los resultados de la librería scipy.
 
 - Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts siguientes para correr las pruebas unitarias:
      1. .
