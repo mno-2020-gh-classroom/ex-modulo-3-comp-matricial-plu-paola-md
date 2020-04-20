@@ -33,12 +33,15 @@ El repositorio está organizado de la siguiente forma:
 - Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene los scripts del equipo de Revisión en formato de clases.
      1. [algorithms](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
           * [TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
-          * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/):
-          * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/): 
+          * [EliminacionPorBloques.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/EliminacionPorBloques.py):**COMPLETAR**
+          * [factorizacion_PLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/factorizacion_PLU.py):**COMPLETAR**
+          * [FactorizacionPLU.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/FactorizacionPLU.py):**COMPLETAR**
 - Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts siguientes para correr las pruebas unitarias:
-          * [plu_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/plu_functions.py)
-          * [revision_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/revision_functions.py)
-          * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py)
+     1. 
+          * [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/img): Carpeta con la captura de pantalla del resultado de las pruebas unitarias.
+          * [plu_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/plu_functions.py): Script que **COMPLETAR**
+          * [revision_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/revision_functions.py): Script que **COMPLETAR**
+          * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py): Script que **COMPLETAR**
           
 
 ## Instrucciones 
