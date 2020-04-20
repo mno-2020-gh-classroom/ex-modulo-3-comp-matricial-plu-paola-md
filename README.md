@@ -22,7 +22,7 @@ El repositorio está organizado de la siguiente forma:
 - Carpeta [img](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/img): Contiene las imágenes utilizadas en el reporte final.
 - Carpeta [notebooks](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks): Contiene dos carpetas con los notebooks y scripts del equipo de Programación y Revisión.   
      1. [Programación](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion): Dentro de esta carpeta se encuentran la siguiente carpeta:
-           i)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Programación.  
+           * [Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Programación.  
            **Nota** Todos los scripts necesarios del equipo de Programación se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src) para que pudieran importarse las funciones mediante comandos.
      2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision):Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
            * [Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
@@ -35,7 +35,11 @@ El repositorio está organizado de la siguiente forma:
           * [TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
           * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/):
           * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/): 
-- Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts para las pruebas unitarias.
+- Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts siguientes para correr las pruebas unitarias:
+          * [plu_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/plu_functions.py)
+          * [revision_functions.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/revision_functions.py)
+          * [test_plu.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests/test_plu.py)
+          
 
 ## Instrucciones 
 
