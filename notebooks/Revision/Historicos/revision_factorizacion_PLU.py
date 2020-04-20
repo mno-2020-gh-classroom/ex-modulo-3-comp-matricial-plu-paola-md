@@ -84,30 +84,30 @@ def revision_PLU(nombre_archivo,numero_corridas,dimension_limite_inferior,dimens
 #En esta parte ya solucioné lo del cálculo de la inversa y acorté el código para que no haga la comprobación de scipy y que eso se haga en otro lado. Este código crea la matriz, calcula PLU, verifica la singularidad y calcula los tiempos.
 
 #def revision_PLU(nombre_archivo,numero_corridas,dimension_limite_inferior,dimension_limite_superior,entradas_limite_inferior,entradas_limite_superior):
-    f= open(nombre_archivo,"w")
-    dimension=[]
-    estado_plu=[]
-    tiempo_plu=[]
-    matrices_incorrectas=[]
-    for i in range(0,numero_corridas):
-        n=np.random.randint(dimension_limite_inferior, dimension_limite_superior)
-        A=np.array(np.random.randint(entradas_limite_inferior,entradas_limite_superior, size=(n, n)))
-        start_time=time.time()
-        P,L,U=factorizacion_PLU.PLU(A)
-        end_time=time.time()
-        prod_diag = U.diagonal().prod()
-        if prod_diag !=0:
-            #print ("Matriz es no singular, continuar y comprobar valores de P,L y U")
-            tiempo_total = end_time-start_time
-            tiempo_plu.append(tiempo_total)
-            dimension.append(n)
-        else:
-            print ("Matriz es singular y por lo tanto, el programa se va a detener")
-            sys.exit()
-    data={'dimension':dimension, 'tiempo_plu':tiempo_plu}       
-    resultados=pd.DataFrame(data)
-    return resultados
-    f.close()
+#    f= open(nombre_archivo,"w")
+#    dimension=[]
+#    estado_plu=[]
+#    tiempo_plu=[]
+#    matrices_incorrectas=[]
+#    for i in range(0,numero_corridas):
+#        n=np.random.randint(dimension_limite_inferior, dimension_limite_superior)
+#        A=np.array(np.random.randint(entradas_limite_inferior,entradas_limite_superior, size=(n, n)))
+#        start_time=time.time()
+#        P,L,U=factorizacion_PLU.PLU(A)
+#        end_time=time.time()
+#        prod_diag = U.diagonal().prod()
+#        if prod_diag !=0:
+#            #print ("Matriz es no singular, continuar y comprobar valores de P,L y U")
+#            tiempo_total = end_time-start_time
+#            tiempo_plu.append(tiempo_total)
+#            dimension.append(n)
+#        else:
+#            print ("Matriz es singular y por lo tanto, el programa se va a detener")
+#            sys.exit()
+#    data={'dimension':dimension, 'tiempo_plu':tiempo_plu}       
+#    resultados=pd.DataFrame(data)
+#    return resultados
+#   f.close()
     
 #resultados=revision_PLU('Resultados.txt',5,2,10,-99,99)
 #resultados
