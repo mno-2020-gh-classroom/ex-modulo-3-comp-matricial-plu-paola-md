@@ -25,23 +25,23 @@ El repositorio está organizado de la siguiente forma:
            i)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Programacion/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Programación.  
            **Nota** Todos los scripts necesarios del equipo de Programación se pasaron a la carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src) para que pudieran importarse las funciones mediante comandos.
      2. [Revisión](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision):Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-           i)[Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
-           ii)[revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/revision_modular.py):Script final utilizado por el equipo de Revisión.
-           iii)[Procedimiento_revision.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Procedimiento_revision.ipynb]): Notebook que contiene todo el proceso que siguió el equipo de Revisión y pruebas de los algoritmos del scritp revision_modular.py 
+           * [Historicos](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Historicos): Contiene todos los scripts y notebooks históricos del equipo de Revisión.
+           * [revision_modular.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/revision_modular.py):Script final utilizado por el equipo de Revisión.
+           * [Procedimiento_revision.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/notebooks/Revision/Procedimiento_revision.ipynb]): Notebook que contiene todo el proceso que siguió el equipo de Revisión y pruebas de los algoritmos del scritp revision_modular.py 
 - Carpeta [references](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/references): Contiene información sobre las referencias utilizadas para desarrollar el proyecto.
 - Carpeta [results](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results): Contiene el notebook [reporte.ipynb](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/results/reporte.ipynb) que trae el reporte final del proyecto. 
 - Carpeta [src](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src): Contiene los scripts del equipo de Revisión en formato de clases.
      1. [algorithms](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms): Dentro de esta carpeta se encuentran los siguientes archivos y carpetas:
-          i)[TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
-          ii)[](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/):
-          iii)[](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/): 
+          * [TodoJunto.py](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/TodoJunto.py): Script final del equipo de Programación.
+          * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/):
+          * [](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/src/algorithms/): 
 - Carpeta [tests](https://github.com/mno-2020-gh-classroom/ex-modulo-3-comp-matricial-plu-paola-md/tree/master/tests): Contiene los scripts para las pruebas unitarias.
 
 ## Instrucciones 
 
 ------------------------------------------------------------------------------------------------------------------------------
 
-### Actividades y roles en el examen:
+#### Actividades y roles en el examen:
 El equipo creado por el prof se subdivide en tres grupos: grupo de programación, grupo de revisión y una persona project manager. Esta división está inspirada en el *framework* [scrum](https://www.youtube.com/watch?v=b02ZkndLk1Y&feature=emb_logo) en un ambiente laboral real (y en esta práctica estaremos simplificando tal *framework*).  
 
 
